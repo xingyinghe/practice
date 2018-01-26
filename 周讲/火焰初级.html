@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .g-container{
+            width: 200px;
+            height: 300px;
+            margin: 100px auto;
+            /*background-color: black;*/
+        }
+        .g-fire {
+            width: 0;
+            height: 0;
+            border-radius: 45%;
+            box-sizing: border-box;
+            border: 150px solid #000;
+            border-bottom: 150px solid transparent;
+            background-color: #b5932f;
+
+            transform: scaleX(.4);
+
+            filter: blur(20px) contrast(30);
+        }
+
+    </style>
+</head>
+<body>
+<div class="g-container">
+    <div class="g-fire">
+
+    </div>
+</div>
+</body>
+</html>

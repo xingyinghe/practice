@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滤镜</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-left: 20px;
+            background: url("img/a.jpg")no-repeat;
+            background-size: 100%;
+
+        }
+        .b{ filter: grayscale(80%);}
+        .c{ filter: invert(75%);}
+        .d{ filter: brightness(0.4);}
+        .e{ filter: saturate(200%);}
+        .f{ filter: sepia(70%);}
+        .g{ filter: blur(4px);}
+        .h{ filter: opacity(25%);}
+        .i{ filter: hue-rotate(90deg);}
+        .j{ filter: drop-shadow(16px 16px 20px blue);}
+        .k{ filter: contrast(200%);}
+
+        div:hover{
+            filter: none;
+        }
+    </style>
+</head>
+<body>
+<h1>CSS3 filter</h1>
+<div class="a">原图</div>
+<div class="b"> Grayscale(灰度)</div>
+<div class="c"> invert(反色)</div>
+<div class="d">Brightness(亮度)</div>
+<div class="e">saturate(饱和度)</div>
+<div class="f">sepia(褐色)</div>
+<div class="g">blur(高斯模糊)</div>
+<div class="h">opacity(透明度)</div>
+<div class="i">hue-rotate(色相旋转)</div>
+<div class="j">drop-shadow(阴影)</div>
+<div class="k">contrast(对比度)</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn{
+            width: 100px;
+            height: 50px;
+            background: lightseagreen;
+        }
+        .img{
+            width: 200px;
+            height: 200px;
+            background-size: 100%;
+        }
+        .btn:hover,
+        .img:hover {
+            transition: filter .3s;
+            filter: brightness(1.2) contrast(120%);
+        }
+    </style>
+</head>
+<body>
+    <input type="button" class="btn" value="点我">
+
+    <img src="img/big1.jpg" alt="" class="img">
+</body>
+</html>
