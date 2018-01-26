@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: lightseagreen;
+            position: absolute;
+            top: 100px;
+            left: 300px;
+            /*animation: aa 5s infinite;*/
+        }
+        div:hover{
+            transform: skew(45deg, -45deg);
+        }
+        @keyframes aa {
+            0%{}
+            25%{transform: translateX(500px);}
+            50%{transform: translate(500px, 300px);}
+            75%{transform: translate(300px, 300px);}
+            100%{transform: translateY(100px);}
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

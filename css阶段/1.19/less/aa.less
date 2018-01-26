@@ -1,0 +1,69 @@
+/*变量的声明和赋值*/
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+body{
+  background: @light-blue;
+}
+.bordered{
+  border-top: 1px double lightblue;
+  border-bottom: 1px solid darkgreen;
+}
+#tag{
+  color: red;
+}
+#menu a{
+  text-decoration: none;
+  /*混合*/
+  .bordered;
+  /*混合*/
+  #tag;
+}
+.post div{
+  width: 100px;
+  height: 30px;
+  .bordered;
+  #tag;
+}
+/*嵌套*/
+header{
+  color: #6c94be;
+  nav {
+    color: black;
+    height: 30px;
+    line-height: 30px;
+    a {
+      text-decoration: line-through;
+      display: inline-block;
+      width: 50px;
+    }
+  }
+  .logo{
+    width: 50px;
+    height: 50px;
+    &:hover{
+      border: 1px solid red;
+    }
+  }
+  /*不加&会变成后代选择器，伪类之前需要添加&符号*/
+  &::before{
+    content: '';
+    clear: both;
+  }
+}
+
+a{
+  background: pink ;
+  b{
+    width: 50px;
+    #c{
+      height: 50px;
+    }
+    d{
+      height: 60px;
+    }
+  }
+  f{
+    height: 88px;
+  }
+}

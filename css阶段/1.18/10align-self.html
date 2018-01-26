@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+        div.box{
+            border: 1px solid black;
+            width: 550px;
+            height: 300px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: row;
+        }
+        div.box div{
+            width: 100px;
+            min-height: 100px;
+            margin: 5px;
+            border: 1px solid lightcoral;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+        div.box div:nth-child(1){
+            align-self: flex-start;
+        }
+
+        div.box div:nth-child(2){
+            align-self: flex-end;
+        }
+
+        div.box div:nth-child(3){
+            align-self: center;
+        }
+
+        div.box div:nth-child(4){
+            align-self: baseline;
+        }
+
+        div.box div:nth-child(5){
+            align-self: stretch;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>flex-start</div>
+    <div>flex-end</div>
+    <div>center</div>
+    <div>baseline</div>
+    <div>stretch</div>
+</div>
+</body>
+</html>

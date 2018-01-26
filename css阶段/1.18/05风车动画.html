@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background: url("img/dfc.gif");
+            background-size: 100% 100%;
+            animation: an 4s linear infinite forwards;
+        }
+        div:hover{
+            animation-play-state: paused;
+        }
+        @keyframes an {
+            from{}
+        to{
+            transform: rotate(360deg);
+
+        }
+        }
+
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

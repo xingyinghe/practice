@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{background-color: lightseagreen;}
+        div{
+            width: 600px;
+            margin: 10px auto;
+            padding: 10px 0;
+            border: 5px solid #CCCCCC;
+            position: relative;
+            box-shadow: 0 0 4px rgba(0,0,0,.8);
+            clear: both;
+            font-family: 'Arial';
+            font-size: 50px;
+            text-align: center;
+            color: #f7edf7;
+        }
+        .box1{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            1px 0 0 rgb(64,224,208),
+            2px 0 0 rgb(72,209,204),
+            3px 0 0 rgb(32,178,170),
+            4px 0 0 rgb(0,139,139),
+            5px 0 0 rgb(0,128,128),
+            6px 0 0 rgb(0,100,100),
+            7px 0 0 rgb(47,79,79),
+            8px 0 0 rgb(37,67,67),
+            8px 0 0 rgba(0,0,0,.5),
+            0px 0 0 rgba(0,0,0,.2);
+        }
+        .box2{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            1px -1px 0 rgb(64,224,208),
+            2px -2px 0 rgb(72,209,204),
+            3px -3px 0 rgb(32,178,170),
+            4px -4px 0 rgb(0,139,139),
+            5px -5px 0 rgb(0,128,128),
+            6px -6px 0 rgb(0,100,100),
+            7px -7px 0 rgb(47,79,79),
+            8px -8px 0 rgb(37,67,67),
+            8px -8px 0 rgba(0,0,0,.5),
+            0    0   0 rgba(0,0,0,.2);
+        }
+        .box3{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            0px -1px 0 rgb(64,224,208),
+            0px -2px 0 rgb(72,209,204),
+            0px -3px 0 rgb(32,178,170),
+            0px -4px 0 rgb(0,139,139),
+            0px -5px 0 rgb(0,128,128),
+            0px -6px 0 rgb(0,100,100),
+            0px -7px 0 rgb(47,79,79),
+            0px -8px 0 rgb(37,67,67),
+            0px -8px 0 rgba(0,0,0,.5),
+            0    0   0 rgba(0,0,0,.2);
+        }
+        .box4{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            -1px -1px 0 rgb(64,224,208),
+            -2px -2px 0 rgb(72,209,204),
+            -3px -3px 0 rgb(32,178,170),
+            -4px -4px 0 rgb(0,139,139),
+            -5px -5px 0 rgb(0,128,128),
+            -6px -6px 0 rgb(0,100,100),
+            -7px -7px 0 rgb(47,79,79),
+            -8px -8px 0 rgb(37,67,67),
+            -8px -8px 0 rgba(0,0,0,.5),
+            0     0   0 rgba(0,0,0,.2);
+        }
+        .box5{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            -1px 0px 0 rgb(64,224,208),
+            -2px 0px 0 rgb(72,209,204),
+            -3px 0px 0 rgb(32,178,170),
+            -4px 0px 0 rgb(0,139,139),
+            -5px 0px 0 rgb(0,128,128),
+            -6px 0px 0 rgb(0,100,100),
+            -7px 0px 0 rgb(47,79,79),
+            -8px 0px 0 rgb(37,67,67),
+            -8px 0px 0 rgba(0,0,0,.5),
+            0    0   0 rgba(0,0,0,.2);
+        }
+        .box6{
+            text-shadow:0 0 0 rgb(0,206,209),
+            -1px 1px 0 rgb(64,224,208),
+            -2px 2px 0 rgb(72,209,204),
+            -3px 3px 0 rgb(32,178,170),
+            -4px 4px 0 rgb(0,139,139),
+            -5px 5px 0 rgb(0,128,128),
+            -6px 6px 0 rgb(0,100,100),
+            -7px 7px 0 rgb(47,79,79),
+            -8px 8px 0 rgb(37,67,67),
+            -8px 8px 0 rgba(0,0,0,.5),
+             0   0   0 rgba(0,0,0,.2);
+        }
+        .box7{
+            text-shadow:0 0 0 rgb(0,206,209),
+            0 1px 0 rgb(64,224,208),
+            0 2px 0 rgb(72,209,204),
+            0 3px 0 rgb(32,178,170),
+            0 4px 0 rgb(0,139,139),
+            0 5px 0 rgb(0,128,128),
+            0 6px 0 rgb(0,100,100),
+            0 7px 0 rgb(47,79,79),
+            0 8px 0 rgb(37,67,67),
+            0 8px 0 rgba(0,0,0,.5),
+            0 0   0 rgba(0,0,0,.2);
+        }
+        .box8{
+            text-shadow:0 0 0 rgb(0,206,209),
+            1px 1px 0 rgb(64,224,208),
+            2px 2px 0 rgb(72,209,204),
+            3px 3px 0 rgb(32,178,170),
+            4px 4px 0 rgb(0,139,139),
+            5px 5px 0 rgb(0,128,128),
+            6px 6px 0 rgb(0,100,100),
+            7px 7px 0 rgb(47,79,79),
+            8px 8px 0 rgb(37,67,67),
+            8px 8px 0 rgba(0,0,0,.5),
+            0   0   0 rgba(0,0,0,.2);
+        }
+        .box9{
+            text-shadow: 0 0 0 rgb(0,206,209),
+            1px 0  0 rgb(64,224,208),
+            2px 0  0 rgb(72,209,204),
+            3px 0  0 rgb(32,178,170),
+            4px 0  0 rgb(0,139,139),
+            5px 0  0 rgb(0,128,128),
+            6px 0  0 rgb(0,100,100),
+            7px 0  0 rgb(47,79,79),
+            8px 0  0 rgb(37,67,67),
+            8px 0  0 rgba(0,0,0,.5),
+            0   0  0 rgba(0,0,0,.2);
+        }
+    </style>
+</head>
+<body>
+<div class="">XingYingHe (normal)</div>
+<div class="box1">XingYingHe (0deg)</div>
+<div class="box2">XingYingHe (45deg)</div>
+<div class="box3">XingYingHe (90deg)</div>
+<div class="box4">XingYingHe (135deg)</div>
+<div class="box5">XingYingHe (180deg)</div>
+<div class="box6">XingYingHe (225deg)</div>
+<div class="box7">XingYingHe (270deg)</div>
+<div class="box8">XingYingHe (315deg)</div>
+<div class="box9">XingYingHe (360deg)</div>
+</body>
+</html>

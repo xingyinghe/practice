@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        header,footer{
+            height: 50px;
+            background:lime ;
+        }
+        .container>div{
+            height: 500px;
+            display: flex;
+            flex-direction: row;
+            background: black;
+        }
+        nav{flex: 2;background:lightcoral; }
+        aside{flex: 2;background:deepskyblue}
+        .main>div{flex: 6;background: gold}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Header</header>
+        <div class="main">
+            <nav>Navigator</nav>
+            <div>Content</div>
+            <aside>Aside</aside>
+        </div>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>

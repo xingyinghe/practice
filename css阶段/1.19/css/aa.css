@@ -1,0 +1,67 @@
+/*变量的声明和赋值*/
+body {
+  background: #6c94be;
+}
+.bordered {
+  border-top: 1px double lightblue;
+  border-bottom: 1px solid darkgreen;
+}
+#tag {
+  color: red;
+}
+#menu a {
+  text-decoration: none;
+  /*混合*/
+  border-top: 1px double lightblue;
+  border-bottom: 1px solid darkgreen;
+  /*混合*/
+  color: red;
+}
+.post div {
+  width: 100px;
+  height: 30px;
+  border-top: 1px double lightblue;
+  border-bottom: 1px solid darkgreen;
+  color: red;
+}
+/*嵌套*/
+header {
+  color: #6c94be;
+  /*不加&会变成后代选择器，伪类之前需要添加&符号*/
+}
+header nav {
+  color: black;
+  height: 30px;
+  line-height: 30px;
+}
+header nav a {
+  text-decoration: line-through;
+  display: inline-block;
+  width: 50px;
+}
+header .logo {
+  width: 50px;
+  height: 50px;
+}
+header .logo:hover {
+  border: 1px solid red;
+}
+header::before {
+  content: '';
+  clear: both;
+}
+a {
+  background: pink ;
+}
+a b {
+  width: 50px;
+}
+a b #c {
+  height: 50px;
+}
+a b d {
+  height: 60px;
+}
+a f {
+  height: 88px;
+}

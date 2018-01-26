@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 300px;
+            margin: 0 auto;
+        }
+        div{
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+        div div{
+            background: orange;
+        }
+        body>div{
+            background: lightpink;
+        }
+        .active+div{
+            background: lawngreen;
+        }
+        .active~div{
+            background: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+<div>1</div>
+<div >2</div>
+<div class="active">3</div>
+<div>4
+    <div>4.1</div>
+    <div>4.2</div>
+</div>
+<div>5
+    <div>5.1
+        <div>5.2</div>
+        <div>5.3</div>
+
+    </div>
+
+</div>
+</body>
+</html>

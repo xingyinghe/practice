@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @font-face {
+            font-family: "abc";
+            src:
+                url("font/MiFie-Web-Font.eot"),/*IE9*/
+                url("font/MiFie-Web-Font.eot?#iefix") format("embedded-opentype"),/*IE6~8*/
+                url("font/MiFie-Web-Font.svg#webfont") format('svg'),
+                url("font/MiFie-Web-Font.ttf") format('truetype'),
+                url("font/MiFie-Web-Font.woff") format('woff');
+        }
+        span::before{
+            content: 'glyphicon glyphicon-qrcode';
+            font-family: abc;
+            font-size: 30px;
+            color: green;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<span></span>哈哈
+</body>
+</html>

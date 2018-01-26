@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            width: 500px;
+            margin: 20px auto;
+        }
+        a{
+            text-decoration: none;
+            font: 16px/30px "Microsoft YaHei";
+            padding-right: 25px;
+            position: relative;
+        }
+        a::before{
+            content: '';
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 3px;
+            right: -3px;
+            background: url('img/a.png') no-repeat;
+        }
+        a[href$='.doc']::before{
+            background-position: 0 0;
+        }
+        a[href$='.xls']::before{
+            background-position: 0 -75px;
+        }
+        a[href$='.ppt']::before{
+            background-position: 0 -50px;
+        }
+        a[href$='.jpg']::before{
+            background-position: 0 -170px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="a.doc">word文件</a></li>
+        <li><a href="a.xls">xls文件</a></li>
+        <li><a href="a.ppt">ppt文件</a></li>
+        <li><a href="a.jpg">jpg文件</a></li>
+    </ul>
+</body>
+</html>

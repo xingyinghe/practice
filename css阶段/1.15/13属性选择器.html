@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="submit"]{background: #fd6363}
+        input[type *= "di"]{
+            width: 40px;
+            height: 40px;
+        }
+
+        input[type ^= "r"]{
+            width: 40px;
+            height: 40px;
+        }
+        input[type $= "io"]{
+            width: 40px;
+            height: 40px;
+        }
+
+        p[class~="first"]{color: red;}
+        p[lang|="en"]{color: #3f8cca;}
+    </style>
+</head>
+<body>
+<form>
+    <input type="text" value="请输入你的姓名" />
+    <input type="radio" />男<input type="radio" />女
+    <input type="password" class="first second" />
+    <input type="submit" value="提交" />
+
+    <p class="first second">hello world</p>
+    <p class="first">hello world</p>
+    <p class="second">hello world</p>
+
+    <p lang="en">hello world</p>
+    <p lang="en-us">hello world</p>
+    <p lang="fr">hello world</p>
+    <p lang="cy-en">hello world</p>
+</form>
+</body>
+</html>
