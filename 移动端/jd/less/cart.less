@@ -1,0 +1,104 @@
+html, body{
+  height: 100%;
+  background: #F3F4F5;
+}
+
+/*搜索栏开始*/
+.jd_topBar{
+  height: 45px;
+  width: 100%;
+  background: url("../img/header-bg.png") repeat-x;
+  position: relative;
+  border-bottom: 1px solid #CCCCCC;
+  a[class^="icon"]{
+    position: absolute;
+    width: 40px;
+    height: 44px;
+    padding: 12px 10px;
+    background-origin: content-box;
+    background-clip: content-box;
+    &.icon_back{
+      left: 0;
+      background-position: -20px 0;
+
+    }
+    &.icon_menu{
+      right: 0;
+      background-position: -60px 0;
+    }
+
+  }
+  h3{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 40px;
+    text-align: center;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+  /*搜索栏结束*/
+
+  /*安全提示开始*/
+  .jd_safeTip{
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: center;
+    p{
+      color: #CCCCCC;
+      position:relative;
+      font-size: 12px;
+      display: inline-block;
+      padding-left: 23px;
+      &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        background: url("../img/safe_icon.png")no-repeat;
+        background-size: 18px 18px;
+        width: 18px;
+        height: 18px;
+
+      }
+    }
+  }
+  /*安全提示结束*/
+/*京东店铺开始*/
+.jd_shop{
+  width: 100%;
+  margin-top: 10px;
+  background: #FFFFFF;
+  border-top: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  .jd_shop_tit{
+    background: #FFFFFF;
+    height: 34px;
+    position: relative;
+  }
+  .left_con{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      .jd_check_box{
+        background: url("../img/shop-icon.png")no-repeat;
+        background-size: 50px 100px;
+
+      }
+    }
+    .right_con{
+      width: 100%;
+      padding-left: 40px;
+
+
+  }
+
+}
+

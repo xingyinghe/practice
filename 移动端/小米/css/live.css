@@ -1,0 +1,202 @@
+body {
+  background: #f3f3f3;
+}
+.xm_layout {
+  margin: 0 auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+}
+/*banner开始*/
+.xm_banner {
+  margin-top: 21%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.xm_banner ul {
+  width: 1000%;
+}
+.xm_banner ul li {
+  float: left;
+  width: 10%;
+}
+.xm_banner ul li a {
+  display: block;
+  width: 100%;
+}
+.xm_banner ul li a img {
+  width: 100%;
+  display: block;
+}
+.xm_banner ul:last-child {
+  width: 118px;
+  height: 6px;
+  position: absolute;
+  bottom: 15px;
+  right: -40px;
+}
+.xm_banner ul:last-child li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+  float: left;
+  margin-left: 10px;
+}
+.xm_banner ul:last-child li:first-child {
+  margin-left: 0;
+}
+.xm_banner ul:last-child li.active {
+  background: black;
+}
+/*banner结束*/
+/*产品栏开始*/
+.live-content {
+  width: 100%;
+  margin-top: 2%;
+}
+.live-content .live-goods .live-content-tit {
+  width: 100%;
+  height: 40px;
+  float: left;
+}
+.live-content .live-goods .live-content-tit h2 {
+  width: 96%;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 4%;
+  color: black;
+  font-size: 22px;
+}
+.live-content .live-goods .live-product {
+  background: white;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.live-content .live-goods .live-product .live-pro-big {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1%;
+  float: left;
+  background: #FFFFFF;
+}
+.live-content .live-goods .live-product .live-pro-big .live-pic {
+  width: 100%;
+  height: 100%;
+}
+.live-content .live-goods .live-product .live-pro-big .live-pic a {
+  display: block;
+  width: 100%;
+}
+.live-content .live-goods .live-product .live-pro-big .live-pic a img {
+  width: 100%;
+  height: 80%;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt {
+  width: 100%;
+  height: 100%;
+  margin: 0 5%;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-l {
+  float: left;
+  width: 55%;
+  height: 100%;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-l h4 {
+  width: 100%;
+  height: 50%;
+  font-weight: bold;
+  padding: 5% 0 3% 0;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-l p {
+  width: 100%;
+  height: 50%;
+  font-size: 12px;
+  padding: 0 0 5% 0;
+  color: #666666;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-r {
+  float: left;
+  width: 35%;
+  height: 100%;
+  margin-top: 20px;
+  text-align: right;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-r .live-txt-price {
+  margin-left: 10px;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-r .live-txt-price i {
+  font-size: 10px;
+  color: brown;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-r .live-txt-price span {
+  font-size: 18px;
+  color: brown;
+  margin: 0 3px;
+}
+.live-content .live-goods .live-product .live-pro-big .live-txt .live-txt-r .live-txt-price s {
+  font-size: 10px;
+  color: gray;
+}
+.live-content .live-goods .live-product .live-product-small {
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.live-content .live-goods .live-product .live-product-small .left {
+  margin-right: 1%;
+}
+.live-content .live-goods .live-product .live-product-small .left,
+.live-content .live-goods .live-product .live-product-small .right {
+  float: left;
+  width: 49.5%;
+  background: #FFFFFF;
+  text-align: center;
+  margin-bottom: 1%;
+}
+.live-content .live-goods .live-product .live-product-small .left img,
+.live-content .live-goods .live-product .live-product-small .right img {
+  width: 100%;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt {
+  padding: 8% 0;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt h4,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt h4 {
+  font-family: "Microsoft YaHei";
+  font-weight: normal;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt p,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt p {
+  color: #666666;
+  font-size: 12px;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt .live-txt-price,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt .live-txt-price {
+  margin-left: 10px;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt .live-txt-price i,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt .live-txt-price i {
+  font-size: 10px;
+  color: brown;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt .live-txt-price span,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt .live-txt-price span {
+  font-size: 18px;
+  color: brown;
+  margin: 0 3px;
+}
+.live-content .live-goods .live-product .live-product-small .left .live-pro-sma-txt .live-txt-price s,
+.live-content .live-goods .live-product .live-product-small .right .live-pro-sma-txt .live-txt-price s {
+  font-size: 10px;
+  color: gray;
+}
+.live-content .live-goods .live-product:last-child {
+  padding-bottom: 10%;
+}
+/*产品栏结束*/

@@ -1,0 +1,269 @@
+body {
+  background: #e0321a;
+}
+.xm_layout {
+  margin: 0 auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+}
+/*banner开始*/
+.phone_banner {
+  margin-top: 21%;
+  width: 100%;
+}
+.phone_banner img {
+  width: 100%;
+  display: block;
+}
+/*banner结束*/
+/*产品栏开始*/
+.pho-content {
+  width: 100%;
+  background: #e0321a;
+}
+.pho-content .pho-goods {
+  width: 96%;
+  margin: 0 2%;
+}
+.pho-content .pho-goods .pho-content-tit {
+  width: 100%;
+  padding: 8px 0;
+}
+.pho-content .pho-goods .pho-content-tit h1 {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  font-weight: normal;
+  color: white;
+  font-size: 24px;
+}
+.pho-content .pho-goods .pho-content-tit p {
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+.pho-content .pho-goods .pho-product {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+  float: left;
+  background: #FFFFFF;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-pic {
+  width: 100%;
+  background-size: 100% 100%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-pic a {
+  display: block;
+  width: 100%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-pic a img {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt {
+  width: 100%;
+  height: 100%;
+  margin: 0 5%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-l {
+  float: left;
+  width: 55%;
+  height: 100%;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-l h3 {
+  width: 100%;
+  height: 50%;
+  font-weight: bold;
+  padding: 5% 0 3% 0;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-l p {
+  width: 100%;
+  height: 50%;
+  font-size: 12px;
+  padding: 0 0 5% 0;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r {
+  float: left;
+  width: 35%;
+  height: 100%;
+  padding: 5px 0;
+  text-align: right;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price {
+  margin-left: 10px;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price i {
+  font-size: 10px;
+  color: brown;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price span {
+  font-size: 18px;
+  color: brown;
+  margin: 0 3px;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price s {
+  font-size: 10px;
+  color: gray;
+}
+.pho-content .pho-goods .pho-product .pho-product-b .pho-txt .pho-txt-r input {
+  width: 90%;
+  height: 100%;
+  color: #FFFFFF;
+  margin-top: 3px;
+  padding: 5px;
+  background: #e0321a;
+}
+.pho-content .pho-content-info {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-content-info .pho-content-tit {
+  width: 100%;
+  padding: 8px 0;
+}
+.pho-content .pho-content-info .pho-content-tit h1 {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  font-weight: normal;
+  color: white;
+  font-size: 24px;
+}
+.pho-content .pho-content-info .pho-content-tit p {
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+.pho-content .pho-content-info .pho-product-info {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+  float: left;
+  background: #FFFFFF;
+}
+.pho-content .pho-content-info .pho-product-info .pho-pic {
+  width: 100%;
+  background-size: 100% 100%;
+}
+.pho-content .pho-content-info .pho-product-info .pho-pic a {
+  display: block;
+  width: 100%;
+}
+.pho-content .pho-content-info .pho-product-info .pho-pic a img {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-content-info .pho-product-info .pho-txt {
+  padding: 10px 0;
+  text-align: left;
+  width: 90%;
+  height: 100%;
+  margin-left: 15px;
+}
+.pho-content .pho-content-info .pho-product-info .pho-txt h3 {
+  font-family: "Microsoft YaHei";
+}
+.pho-content .pho-content-info .pho-product-info .pho-txt p {
+  font-size: 12px;
+  margin-top: 3px;
+}
+.pho-content .pho-good1 .pho-content-tit {
+  width: 100%;
+  padding: 8px 0;
+}
+.pho-content .pho-good1 .pho-content-tit h1 {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  font-weight: normal;
+  color: white;
+  font-size: 24px;
+}
+.pho-content .pho-good1 .pho-content-tit p {
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+.pho-content .pho-good1 .pho-product {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2%;
+  float: left;
+  background: #FFFFFF;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-pic {
+  width: 100%;
+  background-size: 100% 100%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-pic a {
+  display: block;
+  width: 100%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-pic a img {
+  width: 100%;
+  height: 100%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt {
+  width: 100%;
+  height: 100%;
+  margin: 0 5%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-l {
+  float: left;
+  width: 55%;
+  height: 100%;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-l h3 {
+  width: 100%;
+  height: 50%;
+  font-weight: bold;
+  padding: 5% 0 3% 0;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-l p {
+  width: 100%;
+  height: 50%;
+  font-size: 12px;
+  padding: 0 0 5% 0;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-r {
+  float: left;
+  width: 35%;
+  height: 100%;
+  padding: 5px 0;
+  text-align: right;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price {
+  margin-left: 10px;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price i {
+  font-size: 10px;
+  color: brown;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-r .pho-txt-price span {
+  font-size: 18px;
+  color: brown;
+  margin: 0 3px;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b .pho-txt .pho-txt-r p s {
+  font-size: 10px;
+  color: gray;
+}
+.pho-content .pho-good1 .pho-product .pho-product-b:last-child {
+  padding-bottom: 10%;
+}
