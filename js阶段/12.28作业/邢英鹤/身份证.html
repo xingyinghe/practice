@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="txt">
+        <input type="button" id="btn">
+        <span id="span"> </span>
+    </div>
+</body>
+<script>
+    var txt = document.getElementById('txt');
+    var btn = document.getElementById('btn');
+    var span = document.getElementById('span');
+
+    btn.onclick = function () {
+
+
+        var t = txt.value.toUpperCase();
+        //console.log(t);
+        if (t.length != 18) {
+            span.innerText='请输入18位身份证号';
+            return;
+        }
+
+                var sum = 0;
+            for (var i = 0; i < t.length-1; i++) {
+               // var aa = t.charAt(i) * arryzm[i];
+               // sum += aa;
+                 var char = t.charAt(i);
+                var aa = parseInt(char);
+                // // arr.push(aa);
+                //
+                 sum += aa * arryzm[i];
+
+               // console.log(sum);
+                //console.log(typeof arr);
+            }
+           var qy = sum % 11;
+           var code = vcode[qy];
+
+        if (code == t.charAt(17)){
+            span.innerHTML = t + '是一个有效的身份证号码';
+        }else{
+            span.innerHTML = t + '是一个无效的身份证号码';
+        }
+
+    };
+    var vcode = [1,0,'X',9,8,7,6,5,4,3,2];
+    var arryzm = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+</script>
+</html>

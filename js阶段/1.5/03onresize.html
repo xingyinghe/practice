@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script src="js/myQuery1.3.js"></script>
+<script>
+    window.onresize = function () {
+        var w= client().width;
+        var c = 'yellow';
+        if(w >= 960){
+            c = 'blue';
+        }else if(w <= 600){
+            c = 'pink'
+        }
+
+        document.body.style.background = c;
+    }
+</script>
+</html>

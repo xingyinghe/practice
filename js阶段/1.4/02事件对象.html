@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,html{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    document.body.onclick = function (ev) {
+        console.log(ev);
+        console.log(ev.button);
+        console.log(ev.bubbles);
+        console.log(ev.pageX + ','+ev.pageY);
+        console.log(ev.screenX + ','+ev.screenY);
+        console.log(ev.clX + ','+ev.pageY);
+    };
+
+</script>
+</html>

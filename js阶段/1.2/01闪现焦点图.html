@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        div{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+         ul.img{
+             width: 500%;
+             position: absolute;
+             left: 0;
+             top: 0;
+
+         }
+        ul.img li{
+            list-style: none;
+            float: left;
+        }
+        ul.point{
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: -75px;
+
+
+        }
+        ul.point li{
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: pink;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        ul.point li.now{
+            background: deepskyblue;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div>
+    <ul class="img">
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+    </ul>
+    <ul class="point">
+        <li class="now"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script src="js/myQuery.js"></script>
+<script>
+    var points = document.getElementsByClassName('point')[0].children;
+    var imgUl = document.getElementsByClassName('img')[0];
+    var div = document.getElementsByTagName('div')[0];
+    for(var i = 0,le=points.length;i<le;i++){//for循环的优化，把获取长度放到前面
+        var pt = points[i];
+        pt.i = i;
+        pt.onclick = function () {
+            for(var j = 0;j < points.length;j++){
+                points[j].className = '';//清除点击样式
+            }
+            this.className = 'now';
+            animation(imgUl, this.i * -div.offsetWidth);
+        };
+    }
+
+</script>
+</html>

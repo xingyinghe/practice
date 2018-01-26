@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        .wrap{
+            width: 1200px;
+            margin: 20px auto;
+        }
+        .slider{
+            height: 500px;
+            position: relative;
+        }
+        .slider li{
+            list-style: none;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            z-index: 1;
+        }
+        .slider li img{
+            width: 100%;
+            display: block;
+        }
+        .prev, .next{
+            width: 76px;
+            height: 112px;
+            position: absolute;
+            top: 50%;
+            margin-top: -38px;
+            background: url('img/rotate/prev.png') no-repeat;
+            z-index: 100;
+        }
+        .next{
+            background: url('img/rotate/next.png') no-repeat;
+            right: 0;
+        }
+        .prev{
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="slider">
+        <ul>
+            <li><img src="img/rotate/slidepic1.jpg"/></li>
+            <li><img src="img/rotate/slidepic2.jpg"/></li>
+            <li><img src="img/rotate/slidepic3.jpg"/></li>
+            <li><img src="img/rotate/slidepic4.jpg"/></li>
+            <li><img src="img/rotate/slidepic5.jpg"/></li>
+        </ul>
+        <div class="arrow">
+            <div class="prev" id="prev"></div>
+            <div class="next" id="next"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/myQuery1.4.js"></script>
+<script>
+    var json = [
+        {
+            // 位置0的设置
+            width: 400,
+            top: 70,
+            left: 50,
+            opacity: 0.2,
+            zIndex: 2
+        },{
+            // 位置1的设置
+            width: 600,
+            top: 120,
+            left: 0,
+            opacity: 0.8,
+            zIndex: 3
+        },{
+            // 位置2的设置
+            width: 800,
+            top: 100,
+            left: 200,
+            opacity: 1,
+            zIndex: 40
+        },{
+            // 位置3的设置
+            width: 600,
+            top: 120,
+            left: 600,
+            opacity: .8,
+            zIndex: 3
+        },{
+            // 位置4的设置
+            width: 400,
+            top: 70,
+            left: 750,
+            opacity: 0.2,
+            zIndex: 2
+        }
+    ];
+var arr = $('li');
+var prev = $('#prev');
+var next = $('#next');
+var liArr = [];
+    for (var i=0;i<arr.length;i++){
+        liArr.push(arr[i]);
+    }
+    prev.onclick = function(){
+        var first = liArr.shift();//把第一个元素移出
+        liArr.push(first);//在最后面添加一个元素
+        move();
+    };
+    next.onclick = function(){
+        var last = liArr.pop();//把最后一个元素移出
+        liArr.unshift(last);//在最前面添加一个元素
+        move();
+    };
+
+    function move(){
+        for (var i=0;i<liArr.length;i++){
+            animation(liArr[i], json[i]);
+        }
+    }
+    move();
+</script>
+</html>

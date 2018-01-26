@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .aa{
+            margin: 200px auto;
+            width: 200px;
+            height: 20px;
+            background: deepskyblue;
+            text-align: center;
+            border-radius: 10px;
+
+
+        }
+        .bb{
+
+            width: 40px;
+            height: 20px;
+            background: coral;
+            border-radius: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="aa">
+        <div class="bb"></div>
+    </div>
+</body>
+<script src="js/myQuery1.2.js"></script>
+
+<script>
+    var bbDiv = $('bb');
+    var aaDiv = $('aa');
+    // bbDiv.onmousedown = function () {
+    //     aaDiv.onmousemove();
+    // };
+    // bbDiv.onmouseup = function () {
+    //
+    // };
+    window.onmousemove = function (ev) {
+        var e = ev || window.event;
+        var x = e.clientX  + scroll().left- bbDiv.offsetWidth/2;
+        var y = e.clientY  + scroll().top  - bbDiv.offsetHeight/2;
+
+
+        // if(x < 0 ){
+        //     x = 0;
+        // }else if(x > bbDiv.clientWidth - bbDiv.offsetWidth){
+        //     //限制拖块不可以超过右侧、可视的宽度减去拖块的宽度就是拖块可到达的最大的值
+        //     x = bbDiv.clientWidth - bbDiv.offsetWidth;
+        // }
+        // if(y < 0){
+        //     y = 0;
+        // }else if(y > bbDiv.clientHeight - bbDiv.offsetHeight){
+        //     y = bbDiv.clientHeight - bbDiv.offsetHeight;
+        // }
+
+        bbDiv.style.left = x + 'px';
+        bbDiv.style.top = y + 'px';
+
+    };
+
+</script>
+
+</html>

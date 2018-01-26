@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>a</li>
+    <li id="two">2</li>
+    <li>3</li>
+    <li>a</li>
+</ul>
+</body>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    var first = ul.children[0];
+    ul.removeChild(first);
+    var li = document.getElementById('two');
+    li.parentNode.removeChild(li);
+    // var first1 = ul.children[0];
+    // ul.removeChild(first1);
+</script>
+</html>

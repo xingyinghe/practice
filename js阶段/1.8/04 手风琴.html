@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{
+            width: 1300px;
+        }
+        ul li{
+            list-style: none;
+            float: left;
+            width: 240px;
+            height: 400px;
+        }
+        div{
+            width: 1150px;
+            height: 400px;
+            margin: 50px auto;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script src="js/myQuery1.4.js"></script>
+<script>
+    var ul = $('ul')[0];
+    var liArr = ul.children;
+    for(var i in liArr){
+        if(i < liArr.length){
+            liArr[i].style.background=
+                'url("img/player/'+(parseInt(i)+1)+'.jpg")';
+            liArr[i].onmousemove = function () {
+                for(var j = 0;j<liArr.length;j++){
+                    animation(liArr[j],{width:100});
+                }
+                animation(this,{width:800});
+            };
+            liArr[i].onmouseout = function () {
+                for(var j = 0;j<liArr.length;j++){
+                    animation(liArr[j],{width:240});
+                }
+            };
+        }
+    }
+
+</script>
+</html>

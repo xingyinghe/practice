@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 500px;
+        }
+        tr,th,td{
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <p> 姓名：
+            <input type="text" id="name">
+        </p>
+        <p> 年龄：
+           <input type="text" id="age" >
+        </p>
+
+        <input type="button" id="btn" value="保存">
+
+        <table><tr>
+
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    //1.获取姓名的文本框
+    var nameInput = document.getElementById('name');
+    //1.获取年龄的文本框
+    var ageInput = document.getElementById('age');
+    //1.获取保存按钮
+    var btn = document.getElementById('btn');
+    //4.给按钮绑定点击事件
+    btn.onclick = function () {
+        //4.1获取姓名的value
+        var name = nameInput.value;
+        //4.2获取年龄的value
+        var age = ageInput.value;
+        //4.3清空文本框内的姓名
+        nameInput.value = '';
+        //4.4清空文本框内的年龄
+        ageInput.value = '';
+        //4.5创建姓名的文本节点，把姓名添加到节点中
+        var nameTextNode = document.createElement('TextNode');
+
+        nameTextNode.innerText = name;
+        //4.6创建td节点
+        var nameTd = document.createElement('td');
+        //4.7把姓名节点添加到td节点中
+        nameTd.appendChild(nameTextNode);
+        //4.8创建年龄的文本节点，把年龄添加到节点中
+        var ageTextNode = document.createElement('TextNode');
+
+        ageTextNode.innerText = age;
+        //4.9创建td节点
+        var ageTd = document.createElement('td');
+        //4.10把年龄节点添加到td节点中
+        ageTd.appendChild(ageTextNode);
+        //4.11创建input节点
+        var input = document.createElement('input');
+        //4.12给input节点添加value
+        input.value = '删除';
+        input.type = 'button';
+        //4.13给input按钮添加点击事件
+        input.onclick = deleteRow;
+        //4.14创建td节点
+        var inputTd = document.createElement('td');
+        //4.15把input添加到td节点中
+        inputTd.appendChild(input);
+        //4.16创建tr节点
+        var tr = document.createElement('tr');
+        //4.17把三个他的节点添加到tr节点中
+        tr.appendChild(nameTd);
+        tr.appendChild(ageTd);
+        tr.appendChild(inputTd);
+        //4.18获取table元素
+        var table = document.getElementsByTagName('table')[0];
+
+        //4.19把tr添加到table中
+        table.appendChild(tr);
+     //5. 创建删除点用的函数
+    function deleteRow() {
+        // 获取按钮的父节点<td>=>父节点<tr>
+        var tr = this.parentNode.parentNode;
+        // 获取table节点，通过table节点删除tr节点
+        tr.parentNode.removeChild(tr);
+    }
+
+
+    }
+
+</script>
+</html>

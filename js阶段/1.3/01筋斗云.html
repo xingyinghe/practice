@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .box{
+            width: 800px;
+            height: 42px;
+            position: relative;
+            margin: 200px auto;
+
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li{
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            cursor: pointer;
+        }
+        span{
+            position: absolute;
+            width: 83px;
+            height: 42px;
+            left: 0;
+            top: 0;
+            background: url("img/cloud.gif");
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span></span>
+    <ul>
+        <li>新闻首页</li>
+        <li>页首新闻</li>
+        <li>闻首新页</li>
+        <li>新页闻首</li>
+        <li>首新闻页</li>
+        <li>闻页新首</li>
+        <li>页新闻首</li>
+        <li>首闻新页</li>
+    </ul>
+</div>
+</body>
+<script>
+    var span = document.getElementsByTagName('span')[0];
+    var liArr = document.getElementsByTagName('li');
+    span.current = 0;//
+    for(var i = 0;i < liArr.length;i++){
+        liArr[i].onmouseover = function () {
+            //span.style.left = this.offsetLeft + 'px';
+            animation(span,this.offsetLeft);
+        };
+        liArr[i].onmouseout = function () {
+           // span.style.left = span.current +'px';
+            animation(span,span.current);
+        };
+        liArr[i].onclick = function () {
+            span.current = this.offsetLeft;
+        };
+    }
+    function  animation(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var dis = (target - obj.offsetLeft) / 10;
+            dis = dis >0 ? Math.ceil(dis):Math.floor(dis);
+            obj.style.left = obj.offsetLeft + dis + 'px';
+            if(obj.offsetLeft == target){
+                clearInterval(obj.timer);
+            }
+        },20);
+    }
+
+
+</script>
+</html>

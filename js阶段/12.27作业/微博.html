@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weibo发布</title>
+    <link rel="stylesheet" href="weibo.css">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_523671_71qw265rcjvy4x6r.css"/>
+</head>
+<body>
+<div class="in ww">
+    <div class="top w">
+        <div class="top-l fl">
+            <p class="txt">有什么新鲜事想告诉大家？</p>
+        </div>
+        <div class="top-r fr">已输入2字</div>
+
+    </div>
+    <div class="w middle ">
+        <input type="text" id="text">
+    </div>
+    <div w class="bottom  w">
+        <div class="b-l fl">
+            <span> <i class="iconfont icon-face"></i><a href="#">表情</a></span>
+            <span> <i class="iconfont icon-pic"></i><a href="#">图片</a></span>
+            <span> <i class="iconfont icon-shipin"></i><a href="#">视频</a></span>
+            <span> <i class="iconfont icon-jinghao"></i><a href="#">话题</a></span>
+            <span> <i class="iconfont icon-shandian"></i><a href="#">头条文章</a></span>
+            <span> <i class="iconfont icon-ellipsis"></i></span>
+        </div>
+        <div class="b-r fr">
+            <span>公开</span>
+            <input type="botton" id="btn" value="发布">
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!--<div class="aa ww">-->
+<!--<div class="bb w">-->
+<!--<span>微博赛事</span>-->
+<!--</div>-->
+
+<!--</div>-->
+
+<div id="blog" class="ww">
+
+</div>
+</body>
+
+<script>
+    //1.获取内容输入的文本框
+    var textInput = document.getElementById('text');
+    //2.获取发布按钮
+    var btn = document.getElementById('btn');
+    //3.给按钮绑定点击事件
+    btn.onclick = function() {
+        //3.1获取输入的value
+        var text = textInput.value;
+        //3.2清空文本框内的文本
+        textInput.value = '';
+        //3.3创建输入文本的文本节点，把文本添加到节点中
+        var textTextNode = document.createElement('TextNode');
+
+        textTextNode.innerText = text;
+
+        //3.3.1创建span节点，把文本添加到span节点中
+        var textSpan = document.createElement('span');
+        textSpan.appendChild(textTextNode);
+        console.log(textSpan);
+        //3.4创建头像的节点，把图片添加到节点中
+        // 创建div节点
+        var div = document.createElement('div');
+        div.className = 'blog_header';
+        // 创建img节点
+        var img = document.createElement('img');
+        // 设置img的src  //3.4.1创建div节点，把图片添加到div节点中
+        img.src = 'img/1.jpg';
+        img.style.width = '70px';
+
+
+
+        //3.5创建username的文本节点，把username添加到节点中
+        var usernameTextNode = document.createElement('TextNode');
+
+        usernameTextNode.innerText = 'hehe';
+        //3.5.1创建p节点，把username添加到p节点中
+        var usernameP = document.createElement('p');
+        usernameP.appendChild(usernameTextNode);
+        console.log(usernameP);
+        //3.6创建用户名下面的发布时间的文本节点，把文本添加到节点中
+        var timesTextNode = document.createElement('TextNode');
+
+        timesTextNode.innerText = '今天 18:00 来自 微博 weibo.com';
+        //3.6.1创建p节点，把文本添加到p节点中
+        var timesP = document.createElement('p');
+        timesP.appendChild(timesTextNode);
+        console.log(timesP);
+        //3.7创建推广的文本节点，把文字添加到span节点中
+        var tgTextNode = document.createElement('TextNode');
+
+        tgTextNode.innerText = '推广';
+
+        var tgSpan = document.createElement('span');
+        tgSpan.appendChild(tgTextNode);
+        console.log(tgSpan);
+        //3.8创建评论的文本节点，把文本添加到span节点中
+        var plTextNode = document.createElement('TextNode');
+
+        plTextNode.innerText = '评论';
+
+        var plSpan = document.createElement('span');
+        plSpan.appendChild(plTextNode);
+        console.log(plSpan);
+        //3.9创建转发文本节点，把文本添加到span中
+        var zfTextNode = document.createElement('TextNode');
+
+        zfTextNode.innerText = '转发';
+
+        var zfSpan = document.createElement('span');
+        zfSpan.appendChild(zfTextNode);
+        console.log(zfSpan);
+        //3.10创建赞文本节点，把文本添加到span节点中
+        var goodTextNode = document.createElement('TextNode');
+
+        goodTextNode.innerText = '赞';
+
+        var goodSpan = document.createElement('span');
+        goodSpan.appendChild(goodTextNode);
+        console.log(goodSpan);
+        //3.11创建关闭按钮close
+        var close = document.createElement('button');
+        //3.11.1给input节点添加value
+
+        close.innerHTML = '&timesb;';
+
+        //3.11.2给close添加点击事件del
+        close.onclick = deleteRow;
+
+        //3.11.3创建div节点
+        var inputDiv = document.createElement('div');
+        // 3.11.4给input添加到div节点里
+        inputDiv.appendChild(close);
+        inputDiv.style.width = '60px';
+        inputDiv.style.height = '60px';
+        console.log(inputDiv);
+        //3.12.0创建div节点
+        var div = document.createElement('div');
+        //3.12把用户名、时间、发布内容的节点添加到div节点中
+        div.appendChild(img);
+        div.appendChild(usernameP);
+        div.appendChild(timesP);
+        div.appendChild(textSpan);
+
+        //3.12.0创建div节点
+        var div1 = document.createElement('div');
+        //3.13把推广、评论、转发、赞的节点添加到div节点中
+        div1.appendChild(tgSpan);
+        div1.appendChild(plSpan);
+        div1.appendChild(zfSpan);
+        div1.appendChild(goodSpan);
+        div1.style.cssFloat = 'left';
+        div1.style.marginBottom = '5px';
+
+        //3.12.0创建div节点
+        var div2 = document.createElement('div');
+        //3.14把3.13、3.12、3.4、3.11的节点添加到div节点中
+        div2.appendChild(div);
+        div2.appendChild(div1);
+        div2.appendChild(inputDiv);
+        // div2.appendChild(goodSpan);
+        div2.style.backgroundColor = 'pink';
+        div2.style.width = '600px';
+        div2.style.height = '200px';
+        // div2.insertBefore(li3,li);
+        console.log(div2);
+
+
+        blog.appendChild(div2);
+
+        //4. 创建删除div用的函数
+        function deleteRow() {
+            // 获取按钮的父节点<td>=>父节点<tr>
+            var aa = this.parentNode.parentNode;
+            // 获取table节点，通过table节点删除tr节点
+            aa.parentNode.removeChild(aa);
+        }
+
+    }
+</script>
+</html>

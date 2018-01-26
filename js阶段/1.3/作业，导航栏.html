@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        img{
+            display: block;
+        }
+        .main{
+            margin: 0 auto;
+        }
+        .nav{
+            position:absolute;
+            height:100px;
+            top:-100px;
+        }
+        .aa{
+            position:fixed;
+            top:0;
+            overflow:hidden;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="top"><img src="images/top.png"/></div>
+<div class="aa"><div class="nav"><img src="images/nav.png"/></div></div>
+<div class="main"><img src="images/main.png"/></div>
+
+</body>
+<script src="js/myQuery1.1.js"></script>
+<script>
+    var aaDiv = document.getElementsByClassName('aa')[0];
+    var navDiv = document.getElementsByClassName('nav')[0];
+    var topDiv = document.getElementsByTagName('div')[0];
+    window.onscroll = function () {
+        if(scroll().top > 100){
+
+            animation(navDiv,0);
+
+         }
+            else{
+
+            animation(navDiv,-100);
+
+            }
+
+
+    }
+    function  animation(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var dis = (target - obj.offsetTop) / 10;
+            dis = dis > 0 ? Math.ceil(dis) : Math.floor(dis);
+            obj.style.top = obj.offsetTop + dis + 'px';
+            if (obj.offsetTop == target) {
+                clearInterval(obj.timer);
+            }
+        }, 50);
+    }
+</script>
+</html>

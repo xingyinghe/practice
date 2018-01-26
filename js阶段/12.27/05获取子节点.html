@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+
+   //不建议用：firstChild.firstElementChild   IE678会把空格换行当成子节点
+    // var first = ul.firstChild || ul.firstElementChild;
+    // console.log(first);
+    // var last = ul.lastChild || ul.lastElementChild;
+    // console.log(last);
+
+    //建议用children
+    for(){
+
+    }
+</script>
+</html>

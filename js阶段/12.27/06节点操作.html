@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用appendChild往ul里议案家新的li节点</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+    </ul>
+</body>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    //1.创建文本节点
+    var textNode = document.createElement('TextNode');
+    textNode.innerText = '2';
+    //2.创建li节点
+    var li = document.createElement('li');
+    //3.li节点添加文本节点
+    li.appendChild(textNode);
+    //4.ul添加li节点
+
+
+     ul.appendChild(li);
+
+    //使用insertBefore往ul里添加节点
+    var textNode2 = document.createElement('TextNode');
+    var textNode3 = document.createElement('TextNode');
+
+    textNode2.innerText = '3';
+    textNode3.innerText = '4';
+
+    var li2 = document.createElement('li');
+    var li3 = document.createElement('li');
+
+    li2.appendChild(textNode2);
+    li3.appendChild(textNode3);
+
+    ul.insertBefore(li2,null);
+    ul.insertBefore(li3,li);
+
+
+
+
+
+</script>
+</html>

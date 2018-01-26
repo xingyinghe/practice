@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id = "father">
+        <div id = "btn">dianji</div>
+    </div>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var parent = btn.parentNode;
+
+   if(btn.addEventListener){
+
+
+
+    btn.addEventListener('click',foo1);
+    btn.addEventListener('click',foo2);
+    btn.addEventListener('click',foo3);
+    parent.addEventListener('click',function () {
+        console.log('parent');
+    });
+
+
+    //btn.removeEventListener('click',foo2);
+    }else if(btn.attachEvent){
+       btn.attachEvent('onclick',foo1);
+       btn.attachEvent('onclick',foo2);
+       btn.attachEvent('onclick',foo3);
+
+
+       btn.detachEvent('onclick',foo2);
+   }
+
+
+    function foo1() {
+        alert(1);
+    }
+    function foo2() {
+        alert(2);
+    }
+    function foo3() {
+        alert(3);
+    }
+
+</script>
+</html>

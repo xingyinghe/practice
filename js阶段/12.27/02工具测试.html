@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .fontc{
+            color: aqua;
+        }
+        .fonts{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="a b c">1</li>
+        <li class="b c">2</li>
+        <li class="a b c">3</li>
+        <li class="b">4</li>
+        <li class="a b c">5</li>
+    </ul>
+    <div id="div" >aaaaaaaacscd</div>
+<div id="ll" class="a b c d e"></div>
+</body>
+<script src="js/02.js"></script>
+<script>
+    alert(document.getElementsByClassName('a').length);
+
+    addClass(div,'fontc');
+    addClass(div,'fonts');
+
+    removeClass(ll,'d');
+    console.log(ll.className);
+
+</script>
+
+</html>

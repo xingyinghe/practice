@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //无序的数据类型，用键和值保存
+
+
+    //声明json数据
+    var student1 = {
+        "name" : "李白",
+        "age" : "1300",
+        "sex" : "男",
+        "nickname" : "诗仙"
+    };
+    var student2 = {
+        name : '老夫子',
+        age : 456,
+        'sex' : "男",
+        "nickname" : "aaaa"
+    };
+
+    //获取数据
+        var name = student1.name;
+        console.log('name:' + name);
+
+        var age = student1['age'];
+        console.log('age:' + age);
+    console.log(student1);
+
+    //增加（修改）数据
+        student1.weapon = '桃木剑';
+        student1['class'] = '1.1';
+
+    //修改
+        student1.age = 666;
+        student1.sex = "女";
+        console.log(student1);
+
+
+
+        //迭代（遍历），使用for..in
+    for (var key in student1){
+        console.log(key + ',' + student1[key]);
+    }
+
+    var arr = [1,2,3,4,5,6]
+    for(var val in arr){
+
+        console.log(val);
+
+    }
+</script>
+</html>

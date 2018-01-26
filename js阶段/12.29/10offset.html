@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+            margin: 10px;
+        }
+        #box2, #box3{
+            padding: 10px;
+        }
+        #box3{
+            border: 1px solid black;
+        }
+        #box4{
+            margin-left: 200px;
+        }
+        #box5{
+            width: 20px;
+            height: 20px;
+            background: lightblue;
+        }
+        #box6{
+            margin-left: 200px;
+            position: relative;
+        }
+        #box7{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box1" style="width:100px;"></div>
+<div id="box2"></div>
+<div id="box3"></div>
+<div id="box4">
+    <div id="box5"></div>
+</div>
+<div id="box6">
+    <div id="box7"></div>
+</div>
+</body>
+
+<script>
+  //  var children = document.getElementsByTagName('body')[0].children;
+  var children = document.getElementsByTagName('div');
+  var box1 = children[0];
+    var box2 = children[1];
+    var box3 = children[2];
+    var box5 = children[4];
+    var box7 = children[6];
+
+
+    console.log(box1.style.width);
+    console.log(box1.offsetWidth);
+
+    console.log('Width #######################');
+    console.log(box1.offsetWidth);
+    console.log(box2.offsetWidth);
+    console.log(box3.offsetWidth);
+
+    console.log('height #######################');
+    console.log(box1.offsetHeight);
+    console.log(box2.offsetHeight);
+    console.log(box3.offsetHeight);
+    console.log('left #######################');
+
+  console.log(box5.offsetLeft + ', ' + box5.offsetTop);
+  console.log(box7.offsetLeft + ', ' + box7.offsetTop);
+
+
+  console.log(box5.offsetParent);
+
+  console.log(box7.offsetParent);
+
+</script>
+
+</html>

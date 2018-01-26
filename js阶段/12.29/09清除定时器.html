@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var time1 = setInterval(function () {
+        console.log('interval1')
+    },5000);
+    var time2 = setInterval(function () {
+        console.log('interval2')
+    },5000);
+
+    var time3 = setInterval(function () {
+        console.log('timeout1')
+    },5000);
+
+    var time4 = setInterval(function () {
+        console.log('timeout2')
+    },5000);
+    console.log('timer1' + time1);
+    console.log('timer2' + time2);
+    console.log('timer3' + time3);
+    console.log('timer4' + time4);
+    clearInterval(time2);
+    clearTimeout(time3);
+</script>
+
+
+</html>

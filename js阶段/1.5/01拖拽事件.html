@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        div{
+            width:100px;
+            height:100px;
+            background:lightcoral;
+            position:absolute;
+            cursor: pointer;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="box">拖动我</div>
+</body>
+<script src="js/myQuery1.2.js"></script>
+<script>
+        var box = $('.box')[0];
+        box.onmousedown = function(){
+            box.isMouseDown = true;
+        };
+        window.onmousemove = function (ev) {
+            if (box.isMouseDown) {
+                var e = ev || window.event;
+                e.preventDefault();         // 禁止所有的默认事件
+
+                var x = e.clientX + scroll().top - box.offsetWidth / 2;
+                var y = e.clientY + scroll().left - box.offsetHeight / 2;
+
+
+                box.style.left = x + 'px';
+                box.style.top = y + 'px';
+            }
+        };
+        window.onmouseup = function () {
+            box.isMouseDown = false;
+        };
+</script>
+</html>

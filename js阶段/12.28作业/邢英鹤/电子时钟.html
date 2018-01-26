@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    function timer() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        var time = document.getElementsByTagName('div')[0];
+        time.innerHTML =  convert(h)+':'+
+            convert(m)+':'+
+            convert(s);
+    }
+
+    function  convert(val) {
+        return val>10 ? val:'0'+val;//如果时间变成一位数，在前面添加一个0
+    }
+    setInterval(timer,1000);
+</script>
+</html>

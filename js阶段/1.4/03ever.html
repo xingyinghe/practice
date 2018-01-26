@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        *{padding:0;margin:0;}
+        li{list-style: none;width:100%;height:300px;}
+        li:nth-child(1n){
+        background: lightblue;
+        }
+              li:nth-child(2n){
+    background: lightcoral;
+    }
+    </style>
+    </head>
+    <body>
+    <ul>
+    <li>1</li>
+           <li>2</li>
+                  <li>3</li>
+                         <li>4</li>
+                                </ul>
+</body>
+<script>
+    var ul = document.getElementsByTagName('ul')[0];
+    ul.onclick = function(e){
+        // 兼容所有浏览器的写法
+        e = e || window.event;
+
+        console.log('screenY: ' + e.screenY);     // 可见内容+地址栏部分的高度
+        console.log('clientY: ' + e.clientY);     // 可见内容的高度
+        console.log('pageY: ' + e.pageY);         // 整个页面的高度
+        console.log('pageY: ' + (e.clientY + window.pageYOffset));//得到的结果和pageY一样
+        console.log(e.bubbles);
+        console.log(e.target);    // 获取发生事件的源头
+        console.log(e.type);      // 得到事件的类型
+
+    };
+
+
+    var liArr = ul.children;
+    for (var i=0;i<liArr.length;i++){
+        liArr[i].onclick = function(e){
+            console.log(this.innerHTML);
+            //e.stopPropagation();    // 禁止冒泡事件发生
+        };
+    }
+</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        img{
+            display: block;
+        }
+        .main{
+            margin: 0 auto;
+        }
+        .nav{
+            position:absolute;
+            width:100px;
+            left:0;
+            top:0;
+        }
+        .aa{
+            position:fixed;
+            top:0;
+            /*overflow:hidden;*/
+            height: 100px;
+            width: 100%;
+        }
+        .bb{
+            position: fixed;
+            width: 50px;
+            height:50px;
+
+            background: url("img/b.png") no-repeat pink center;
+            left: 0;
+            top:600px;
+        }
+        .bb img{
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="top"><img src="img/top.png"/></div>
+<div class="aa">
+    <div class="nav"><img src="img/nav.png"/></div>
+    <div class="bb"></div>
+
+</div>
+<div class="main"><img src="img/main.png"/></div>
+
+</body>
+<script src="js/myQuery1.1.js"></script>
+<script>
+    var bbDiv = document.getElementsByClassName('bb')[0];
+    var navDiv = document.getElementsByClassName('nav')[0];
+
+    bbDiv.onclick = function () {
+        if(navDiv.offsetLeft == 0){
+            animation(navDiv, -100);
+            bbDiv.style.backgroundImage="url(img/a.png)";
+        }else if(navDiv.offsetLeft == -100){
+            animation(navDiv, 0);
+            bbDiv.style.backgroundImage="url(img/b.png)";
+        }
+
+
+
+        function animation(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var dis = (target - obj.offsetLeft) / 10;
+                dis = dis > 0 ? Math.ceil(dis) : Math.floor(dis);
+                obj.style.left = obj.offsetLeft + dis + 'px';
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                }
+            }, 40);
+        }
+    }
+</script>
+</html>

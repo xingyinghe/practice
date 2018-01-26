@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 322px;
+
+
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        #big{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 8;
+
+        }
+        img{
+            display: block;
+        }
+        #bx{
+            width:20px;
+            height: 20px;
+            /*background: black;*/
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            cursor: pointer;
+        }
+        #small{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="box">
+
+    <div id="big"><img src="img/360/t.jpg" alt=""> <span id="bx"></span></div>
+    <div id="small"><img src="img/360/b.jpg" alt=""></div>
+</div>
+</body>
+<script>
+    var big = document.getElementById('big');
+    var small = document.getElementById('small');
+    var bx = document.getElementById('bx');
+
+
+   bx.onclick = function () {
+        animation(small, {height:0},callback);
+    };
+
+    function callback() {
+        animation(big,{width:0});
+    }
+
+
+    function animation(obj,target,callback) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var isClearInterval = true;
+            for (var key in target){
+                // (目标 - 当前) / 10
+                var t = target[key]; // 目标位置
+                var c = parseInt(getStyle(obj, key));  // 当前位置
+                var s = (t - c) / 10;   // 每次移动的距离
+                s = s > 0 ? Math.ceil(s) : Math.floor(s);
+                obj.style[key] = c + s + 'px';
+                if (c + s != t){ // 判断是否移动到目录位置
+                    isClearInterval = false;
+                }
+            }
+            if (isClearInterval){
+                clearInterval(obj.timer);
+
+                if (callback){
+                    callback();
+                }
+            }
+        },20);
+    }
+
+    function getStyle(obj, property){
+        if (window.getComputedStyle){
+            return window.getComputedStyle(obj, null)[property];
+        }else{  // IE678
+            return obj.currentStyle[property];
+        }
+    }
+</script>
+</html>

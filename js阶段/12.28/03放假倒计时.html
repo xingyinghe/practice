@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div></div>
+    <div>
+        <img><img/>天
+        <img><img/>小时
+        <img><img/>分
+        <img><img/>秒
+    </div>
+
+</div>
+</body>
+<script>
+    function foo() {
+
+    //获取当前的时间的毫秒数
+    var date1 =Date.now();
+    //获取到1.1的毫秒数
+    var date2 = new Date('2018/1/1 0:0:0').getTime();
+    var ms = date2 - date1;
+
+    //1秒=1000毫秒
+   // var s = ms/1000;
+    //1分钟=60秒
+   // var min = s/60;
+    //1小时=60分钟
+   // var ho = min/60;
+    //1天=24小时
+    //var day = ho/24;
+    var day = parseInt(ms/(24*60*60*1000));
+    ms = ms % (24*60*60*1000);
+    var hours = parseInt(ms/(60*60*1000));
+    ms = ms % (60*60*1000);
+    var mi = parseInt(ms/(60*1000));
+    ms = ms % (60*1000);
+    var second = parseInt(ms/1000);
+    return[day,hours,mi,second];
+    }
+
+
+    function  convert(val) {
+        return val>10 ? val:'0'+val;//如果时间变成一位数，在前面添加一个0
+    }
+
+    function update(img,filename) {
+        img.src = 'img/'+filename +'.jpg';
+
+    }
+    function print(){
+        var arr = foo();
+     //数字显示倒计时
+        div.innerHTML = convert(arr[0])+'天'+
+            convert(arr[1])+'小时'+
+            convert(arr[2])+'分'+
+            convert(arr[3])+'秒';
+
+        //天   把数字换成图片显示倒计时
+        update(imgs[0], arr[0]>9?parseInt(arr[0]/10):0);
+        update(imgs[1], arr[0]%10);
+        // 小时
+        update(imgs[2], arr[1]>9?parseInt(arr[1]/10):0);
+        update(imgs[3], arr[1]%10);
+        // 分
+        update(imgs[4], arr[2]>9?parseInt(arr[2]/10):0);
+        update(imgs[5], arr[2]%10);
+        // 秒
+        update(imgs[6], arr[3]>9?parseInt(arr[3]/10):0);
+        update(imgs[7], arr[3]%10);
+
+    }
+    var div = document.getElementsByTagName('div')[0];
+    var imgs = document.getElementsByTagName('img');
+    print();//  先调用一次，显示当前时间，然后一秒后进行刷新显示
+    setInterval(function () {
+        print();
+    },1000)
+</script>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        div{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+         ul.img{
+             width: 500%;
+             position: absolute;
+             left: 0;
+             top: 0;
+
+         }
+        ul.img li{
+            list-style: none;
+            float: left;
+        }
+        ul.point{
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: -75px;
+
+
+        }
+        ul.point li{
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: pink;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        ul.point li.now{
+            background: deepskyblue;
+        }
+        .arrow{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            margin-top: -25px;
+        }
+        .arrow li{
+            list-style: none;
+            width: 35px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0,0,0,.2);
+        }
+        .arrow .left{
+            float: left;
+        }
+        .arrow .right{
+            float: right;
+        }
+    </style>
+
+</head>
+
+<body>
+<div>
+    <ul class="img">
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+    </ul>
+    <ul class="point">
+        <li class="now"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="arrow">
+        <li class="left">&lt;</li>
+        <li class="right">&gt;</li>
+    </ul>
+</div>
+</body>
+<script src="js/myQuery.js"></script>
+<script>
+    var points = document.getElementsByClassName('point')[0].children;
+    var imgUl = document.getElementsByClassName('img')[0];
+    var div = document.getElementsByTagName('div')[0];
+
+    for(var i = 0,le=points.length;i<le;i++){//for循环的优化，把获取长度放到前面
+        var pt = points[i];
+        pt.i = i;
+        pt.onclick = function () {
+            index=this.i;
+            animation(imgUl, index * -div.offsetWidth);
+            highlightPoint();
+        };
+        
+    }
+    var left = document.getElementsByClassName('left')[0];
+    var right = document.getElementsByClassName('right')[0];
+    left.onclick = function () {
+        index--;
+        var target = -index * div.offsetWidth;
+        animation(imgUl,target);
+        highlightPoint();
+    }
+    right.onclick = function () {
+        index++;
+        var target = -index * div.offsetWidth;
+        animation(imgUl,target);
+        highlightPoint();
+    }
+    var index = 0;
+    
+    function highlightPoint() {
+        for(var j = 0;j < points.length;j++){
+            points[j].className = '';//清除点击样式
+        }
+        points[index].className = 'now';
+    }
+</script>
+</html>

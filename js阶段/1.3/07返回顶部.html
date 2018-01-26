@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 600%;
+        }
+        div{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <img src="images/Top.jpg" alt=""/>
+</div>
+</body>
+<script src="js/myQuery1.1.js"></script>
+<script>
+    var div = $('div')[0];
+    window.onscroll = function () {
+     if(scroll().top >=100){
+        div.style.display = 'block';
+
+        }else {
+         div.style.display = 'none';
+        }
+
+     };
+    div.onclick = function () {
+        clearInterval(div.timer);
+        div.timer = setInterval(function () {
+            var speed = (0 - scroll().top)/10;
+            speed = speed>0?Math.ceil(speed):Math.floor(speed);
+            window.scrollTo(0,scroll().top + speed);
+            if (scroll().top == 0){
+                clearInterval(div.timer);
+            }
+
+            },20);
+    }
+
+
+</script>
+</html>

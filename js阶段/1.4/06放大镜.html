@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0;margin:0;}
+        .box{
+            width: 900px;
+            height: 430px;
+            margin: 50px auto;
+            position: relative;
+        }
+        img{display: block;}
+        .small{float:left;}
+        .small div.mask{
+            width: 180px;
+            height: 180px;
+            background: lightcoral;
+            opacity: 0.3;
+            filter:alpha(opacity=30);/*兼容ie*/
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .big{
+            border:1px solid #CCCCCC;
+            /*background: red;*/
+            overflow: hidden;
+            width: 430px;
+            height: 430px;
+            float: left;
+            margin-left: 20px;
+            display: none;
+            position: relative;
+        }
+        .big img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="small">
+        <img src="img/small.jpg" />
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="img/big.jpg" />
+    </div>
+</div>
+</body>
+<script src="js/myQuery1.2.js"></script>
+<script>
+    var box = $('div')[0];
+    var small = box.children[0];
+    var big = box.children[1];
+    var bigImg = big.children[0];
+    var mask = small.children[1];
+
+    // mask跟随鼠标移动
+    small.onmousemove = function(ev){
+        var e = ev || window.event;
+
+        var x = e.clientX + small.offsetLeft - box.offsetLeft - mask.offsetWidth / 2;
+        var y = e.clientY + small.offsetTop - box.offsetTop - mask.offsetHeight / 2;
+
+        if (x < 0){
+            x = 0;
+        }else if(x > small.offsetWidth - mask.offsetWidth){
+            x = small.offsetWidth - mask.offsetWidth;
+        }
+        if (y < 0){
+            y = 0;
+        }else if(y > small.offsetHeight - mask.offsetHeight){
+            y = small.offsetHeight - mask.offsetHeight;
+        }
+
+        mask.style.left = x + 'px';
+        mask.style.top = y + 'px';
+
+        // 计算mask的left和top在small的width和height的比例
+        var percentX = x / small.offsetWidth;
+        var percentY = y / small.offsetHeight;
+        // 大图移动
+        var left = percentX * bigImg.offsetWidth;
+        var top = percentY * bigImg.offsetHeight;
+        if (left > bigImg.offsetWidth - big.offsetWidth){
+            left = bigImg.offsetWidth - big.offsetWidth;
+        }
+        if (top > bigImg.offsetWidth - big.offsetWidth){
+            top = bigImg.offsetHeight - big.offsetHeight;
+        }
+
+        bigImg.style.left = -left + 'px';
+        bigImg.style.top = -top + 'px';
+        console.log(-percentX)
+    };
+
+    // 鼠标进入small时mask和big显示
+    // 也可以使用onmouseover，但会把事件传递给子节点
+    small.onmouseenter = function(){
+        mask.style.display = 'block';
+        big.style.display = 'block';
+    };
+    // 鼠标离开small时mask和big隐藏
+    // 也可以使用onmouseout，但会把事件传递给子节点
+    small.onmouseleave = function(){
+        mask.style.display = 'none';
+        big.style.display = 'none';
+    };
+</script>
+</html>

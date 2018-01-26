@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+            opacity: 0.9;
+            filter:alpha(opacity=90);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    var box = document.getElementById('box');
+    box.onmouseover = function () {
+        animation(box,{opacity:0.1})
+    };
+    box.onmouseout = function () {
+        animation(box,{opacity:0.9})
+    };
+    function animation(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+           var c = Math.round(getStyle(obj,'opacity') * 100);
+           var t = target.opacity * 100;
+           var s = (t - c)/10;
+           s = s>0 ? Math.ceil(s) : Math.floor(s);
+           console.log(c + ','+ t +','+s);
+           obj.style.opacity = (c+s)/100;
+           obj.style.filter = 'alpha(opacity ='+(c+s)+')';
+           if(c + s == t){
+               clearInterval(obj.timer);
+           }
+        },20);
+    }
+    function getStyle(obj,property){
+        if (window.getComputedStyle){
+            return getComputedStyle(obj,null)[property];
+        }else{
+            return obj.currentStyle[property];
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ad">
+    广告
+</div>
+    <div><span id="time">5</span>秒钟后跳转到首页</div>
+</body>
+<script src="js/myQuery.js"></script>
+<script>
+    var div = $('#ad');
+    setTimeout(function () {
+        div.style.display = 'none';
+    },5000);
+
+    var count = 5;
+    var time = $('#time');
+    setInterval(function () {
+        count--;
+        // if(count == 0){
+        //   location.href = 'http://www.baidu.com';
+        // }else{
+        //   time.innerText = count;
+        // }
+        time.innerText = count;
+
+    },1000);
+    setTimeout(function () {
+        location.href = 'http://www.baidu.com';
+    },count*1000);
+
+</script>
+</html>

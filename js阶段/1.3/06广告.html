@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 600%;
+        }
+        div{
+            position: absolute;
+            top: 80px;
+            left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/aside.jpg" alt=""/>
+    </div>
+</body>
+
+<script src="js/myQuery1.1.js"></script>
+<script>
+    var div = document.getElementsByTagName('div')[0];
+
+    window.onscroll = function () {
+        //div.style.top = scroll().top + 80 +'px';
+
+
+
+    };
+
+</script>
+</html>

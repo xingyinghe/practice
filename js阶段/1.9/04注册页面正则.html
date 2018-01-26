@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>用户名：<input type="text" value="" id="username" name="username"><span ></span></div>
+<div>密码：<input type="text" value="" id="psw" name="psw"><span ></span></div>
+<div>性别：<input type="text" value="" id="sex" name="sex"><span ></span></div>
+<div>手机号：<input type="text" value="" id="pho" name="pho"><span ></span></div>
+<div>电子邮箱：<input type="text" value="" id="email" name="email"><span ></span></div>
+<div>个人网站：<input type="text" value="" id="web" name="web"><span ></span></div>
+<div>出生年：<input type="text" value="" id="year" name="year"><span ></span></div>
+
+</body>
+<script>
+    var username = document.getElementById('username');
+    var psw = document.getElementById('psw');
+
+    var sex = document.getElementById('sex');
+    var pho = document.getElementById('pho');
+    var email = document.getElementById('email');
+    var web = document.getElementById('web');
+    var year = document.getElementById('year');
+
+    username.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^[\u3040-\u309F\u4e00-\u9fa5\uf900-\ufa2d]{2,4}$/.test(username.value)){
+            span.innerHTML='用户名正确！';
+        }else {
+            span.innerHTML='用户名不对捏！';
+        }
+        //console.log(/^[\u3040-\u309F\u4e00-\u9fa5\uf900-\ufa2d]{2,4}$/.test(username.value));
+    };
+    psw.onblur=function () {
+       var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^\w{4,18}$/.test(psw.value)){
+            span.innerHTML='密码格式正确！';
+        }else {
+            span.innerHTML='密码格式不对啊！';
+        }
+
+    };
+    sex.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^(男|女)$/.test(sex.value)){
+            span.innerHTML='格式正确！';
+        }else {
+            span.innerHTML='格式不对啊！';
+        }
+
+        //console.log(/^(男|女)$/.test(sex.value));
+
+    }
+    pho.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^(1[3|5|8|7])\d{9}$/.test(pho.value)){
+            span.innerHTML='格式正确！';
+        }else {
+            span.innerHTML='格式不对啊！';
+        }
+        //console.log(/^(1[3|5|8|7])\d{9}$/.test(pho.value));
+
+    }
+    email.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^\w+@\w+\.\w{2,}(\.\w{2,})?$/.test(email.value)){
+            span.innerHTML='格式正确！';
+        }else {
+            span.innerHTML='格式不对啊！';
+        }
+        //console.log(/^\w+@\w+\.\w{2,}(\.\w{2,})?$/.test(email.value));
+
+    }
+    web.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^(http|https):\/\/(www\.)*\w+\.\w+$/.test(email.value)){
+            span.innerHTML='个人主页正确！';
+        }else {
+            span.innerHTML='个人主页式不对！';
+        }
+      //  console.log(/^(http|https):\/\/www\.+\w{2,}(\.\w{2,})?$/.test(web.value));
+
+    }
+    year.onblur=function () {
+        var span = this.nextSibling || this.nextElementSibling;
+
+        if(/^(19\d{2})|(200\d)|(201[0-8])$/.test(year.value)){
+            span.innerHTML='出生月份正确！';
+        }else {
+            span.innerHTML='出生月份不对啊！';
+        }
+        //console.log(/^(19\d{2})|(200\d)|(201[0-8])$/.test(year.value));
+
+    }
+</script>
+</html>

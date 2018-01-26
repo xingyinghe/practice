@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background: deepskyblue;
+            margin: 5000px auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div> </div>
+</body>
+<script src="js/myQuery1.2.js"></script>
+<script>
+    var div = $('div')[0];
+    div.onmousemove = function (ev) {
+        ev = ev || window.event;
+        var x = ev.clientX + scroll().left - div.offsetLeft;
+        var y = ev.clientY + scroll().top - div.offsetTop;
+        div.innerHTML = 'x的坐标是：'+x+',y的坐标是：'+y;
+    };
+
+</script>
+</html>

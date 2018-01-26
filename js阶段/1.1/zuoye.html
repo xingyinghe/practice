@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{margin:0;padding:0;}
+    #box{
+        width:50px;
+        height:50px;
+        position: absolute;
+        background: lightblue;
+    }
+    div input{
+        width: 50px;
+        height: 30px;
+    }
+    .four{
+        width: 250px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+<div class="four" id="bnt"> <input type="button"value="上" id="up" >
+    <input type="button"value="下" id="down">
+    <input type="button"value="左" id="left" >
+    <input type="button"value="右" id="right"></div>
+
+<div id="box"></div>
+</body>
+<script>
+    window.onload=function ()
+    {
+        var oUp=document.getElementById('up');
+        var oDown=document.getElementById('down');
+        var oLeft=document.getElementById('left');
+        var oRight=document.getElementById('right');
+
+        var oDiv=document.getElementById('box');
+
+        var MoveTime = 100;
+
+        var x =5;
+        var y =5;
+        function move() {
+
+                   oDiv.style.left = oDiv.offsetLeft + x +'px';
+                   oDiv.style.top = oDiv.offsetTop + y +'px';
+
+
+        }
+        setInterval(move,MoveTime);
+        oLeft.onclick = function () {
+            x = -1*Math.abs(x);
+        }
+        oRight.onclick = function () {
+            x = 1*Math.abs(x);
+        }
+        oUp.onclick = function () {
+            y = -1*Math.abs(y);
+        }
+        oDown.onclick = function () {
+            y = 1*Math.abs(y);
+        }
+
+
+
+    }
+</script>
+</html>

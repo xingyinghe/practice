@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+            background: greenyellow;
+            /*overflow: hidden;*/
+        }
+        ul.img{
+            width:500%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul.img li{
+            list-style: none;
+            float: left;
+        }
+        ul.point{
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: -75px;
+        }
+        ul.point li{
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            background: lightcoral;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        ul.point li.now{
+            background: goldenrod;
+        }
+        .arrow{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            margin-top: -25px;
+        }
+        .arrow li{
+            list-style: none;
+            width: 35px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, .2);
+        }
+        .arrow .left{
+            float: left;
+        }
+        .arrow .right{
+            float: right;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <ul class="img">
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+        <li><img src="img/4.jpg"/></li>
+        <li><img src="img/5.jpg"/></li>
+    </ul>
+    <ul class="point">
+        <li class="now">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul class="arrow">
+        <li class="left">&lt;</li>
+        <li class="right">&gt;</li>
+    </ul>
+</div>
+</body>
+<script src="js/myQuery.js"></script>
+<script>
+    // 1. 获取所有圆点的li
+    var points = document.getElementsByClassName('point')[0].children;
+    // 2. 获取img的ul
+    var imgUl = document.getElementsByClassName('img')[0];
+    // 3. 获取div
+    var div = document.getElementsByTagName('div')[0];
+    for(var i=0,len=points.length;i<len;i++){
+        var pt = points[i];
+        pt.i = i;
+        pt.onclick=function () {
+            div.index = this.i;
+
+            animation(imgUl,-div.index * div.offsetWidth);
+            highlightPoint();
+        };
+    }
+
+
+    var arrows = $('.arrow')[0].children;
+    arrows[0].onclick=function () {
+        div.index--;
+        if(div.index<0){
+            div.index = imgUl.children.length -2;
+            imgUl.style.left= -div.index * div.offsetWidth+'px';
+        }
+        var target = -div.index * div.offsetWidth;
+        animation(imgUl,target);
+        highlightPoint();
+    };
+    arrows[1].onclick=function () {
+        div.index++;
+        if(div.index>=imgUl.children.length){
+            div.index = 2;
+            imgUl.style.left= 0 +'px';
+        }
+        var target = -div.index * div.offsetWidth;
+        animation(imgUl,target);
+        highlightPoint();
+    };
+    div.index = 1;
+    function highlightPoint() {
+        for(var j=0;j<points.length;j++){
+            points[j].className = '';
+
+        }
+       points[div.index].className = 'now';
+    }
+
+
+    imgUl.innerHTML += '<li><img src="img/1.jpg"></li>';
+    imgUl.innerHTML = '<li><img src="img/5.jpg"></li>'+imgUl.innerHTML;
+    imgUl.style.width = imgUl.children.length*100+ '%';
+    imgUl.style.left = -div.offsetWidth + 'px';
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+            position: relative;
+            margin: 200px auto;
+        }
+        span{
+            position: absolute;
+            font-size: large;
+            right: 5px;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span id="close_caret">&timesb;;</span>
+</div>
+</body>
+<script>
+
+    var close = document.getElementById('close_caret');
+    close.onclick = function () {
+        var parent = close.parentNode;
+        parent.style.display = 'none';
+    };
+
+
+</script>
+
+</html>

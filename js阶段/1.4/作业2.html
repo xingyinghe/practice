@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            display: block;
+        }
+        div{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img/mouse.jpg" alt="">
+    </div>
+</body>
+<script src="js/myQuery1.2.js"></script>
+
+<script>
+        var div = $('div')[0];
+
+    window.onclick = function (ev) {
+        var e = ev || window.event;
+        var x = e.clientX + scroll().left - div.offsetWidth/2;
+        var y = e.clientY + scroll().top - div.offsetHeight/2;
+
+
+
+        animation(div,x,y);
+
+    };
+
+        function  animation(obj,target1,target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                //y  target
+                var dis = (target - obj.offsetTop) / 10;
+                dis = dis > 0 ? Math.ceil(dis) : Math.floor(dis);
+                obj.style.top = obj.offsetTop + dis + 'px';
+
+                //x  target1
+                var dis1 = (target1 - obj.offsetLeft) / 10;
+                dis1 = dis > 0 ? Math.ceil(dis1) : Math.floor(dis1);
+                obj.style.left = obj.offsetLeft + dis1 + 'px';
+
+
+                if (obj.offsetTop == target && obj.offsetLeft == target1) {
+                    clearInterval(obj.timer);
+                }
+            }, 30);
+        }
+
+</script>
+</html>

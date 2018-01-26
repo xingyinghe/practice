@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    div{
+        position: relative;
+        margin: 100px 0 0 200px;
+    }
+    div ul{
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+    }
+    ul,li{
+        list-style: none;
+    }
+    div li{
+        float: left;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: aqua;
+        margin: 0 2px;
+    }
+    .current{
+        border: 1px solid black;
+
+    }
+</style>
+<body>
+    <div>
+        <img src="img/dd.jpg" alt="">
+    </div>
+</body>
+<script>
+    var div = document.getElementsByTagName('div')[0];
+    var ul = document.createElement('ul');
+    var arr = [];
+    for(var i=1;i<6;i++){
+        arr[i];
+
+        var li = document.createElement('li');
+
+        ul.appendChild(li);
+    }
+    div.appendChild(ul);
+</script>
+</html>

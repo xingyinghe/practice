@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        li{
+            list-style: none;
+            color: #FFFFFF;
+        }
+        .nav{
+            position: fixed;
+            left: 15px;
+            top: 80px;
+        }
+        .nav .now{
+            background: lightcoral;
+        }
+        .nav li{
+            width: 70px;
+            height: 40px;
+            line-height: 40px;
+            text-align:center;
+            font-size: 14px;
+            cursor: pointer;
+            background: #666;
+            color: #FFFFFF;
+        }
+        html,body{
+            height: 100%;
+
+        }
+        ul{
+            height:1000%;
+        }
+        .content li{
+            height: 20%;
+            font: 100px "Microsoft YaHei";
+            text-align: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>享受品质</li>
+        <li>服饰美妆</li>
+        <li>家电手机</li>
+        <li>电脑数码</li>
+        <li>3c运动</li>
+    </ul>
+    <ul class="content">
+        <li>享受品质</li>
+        <li>服饰美妆</li>
+        <li>家电手机</li>
+        <li>电脑数码</li>
+        <li>3c运动</li>
+    </ul>
+</body>
+<script src="js/myQuery1.2.js"></script>
+<script>
+    //获取
+    var navLiArr = $('ul')[0].children;
+    var contentLiArr = $('ul')[1].children;
+    //创建颜色数组
+    var colorArr = [ "deepskyblue","hotpink","greenyellow"," gold","mediumspringgreen"];
+    //循环，遍历每个页面内容的li，把数组对应的颜色赋值给li的背景
+    for(var i = 0;i<contentLiArr.length;i++){
+        contentLiArr[i].style.background = colorArr[i];
+    }
+
+
+    //点击跳转到对应楼层
+
+    for (var i = 0;i<navLiArr.length;i++){
+        var tmp = navLiArr[i];
+        tmp.index = i;//记录现在的导航栏的li是第几个，点击时通过该值计算移动的距离
+        tmp.onclick = function () {//导航栏li的点击事件
+            // for(var j = 0;j<navLiArr.length;j++){
+            //     navLiArr[j].className = '';
+            // }
+            // this.className = 'now';
+            var dist = this.index * document.body.offsetHeight *2;
+            console.log(dist);
+           // dist = Math.ceil(dist);
+            clearInterval(window.timer);
+            window.timer = setInterval(function () {
+               var pos = (dist - scroll().top)/10;
+               pos = pos>0?Math.ceil(pos):Math.floor(pos);
+               window.scrollTo(0,scroll().top + pos);
+               console.log(scroll().top +','+ dist)
+               if(scroll().top == dist){
+                   clearInterval(window.timer);
+               }
+            },20);
+        };
+    }
+            window.onscroll = function () {//页面滚动导航栏高亮
+                var top = scroll().top;
+                var h = document.body.offsetHeight * 2;
+                var num = parseInt(Math.round(top / h *3)/3);
+                for(var j = 0;j < navLiArr.length;j++){
+                    navLiArr[j].className = '';
+                }
+                navLiArr[num].className = 'now';
+            };
+
+</script>
+</html>

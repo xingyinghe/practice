@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div>
+            <div>
+                <label>上传文件：</label>
+                <input type="file" name="file" id="file">
+                <span id="fileMsg"></span>
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    var input = document.getElementById('file');
+    var span = document.getElementById('fileMsg');
+    input.onchange = function () {
+        var filename = input.value;
+        console.log(filename);
+        var  suffix = filename.substring(filename.lastIndexOf('.')+1).toLowerCase();
+        if(suffix == 'jpg' ||
+            suffix == 'jpeg' ||
+            suffix == 'gif' ||
+            suffix == 'png' ||
+            suffix == 'bmp' ){
+            span.innerHTML = '文件可用';
+        }else{
+            span.innerHTML = '只支持jpg,jpeg,png,gif,bmp类型文件';
+        }
+
+    }
+</script>
+</html>
