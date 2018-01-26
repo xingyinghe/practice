@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .fl{
+            float: left;
+        }
+        .clearfix{
+            clear: both;
+        }
+        .box{
+            width: 300px;
+            margin: 100px auto;
+            border: 1px solid lightskyblue;
+        }
+        h2{
+            font-family: "Adobe 楷体 Std R";
+            margin-left: 15px;
+        }
+        .main .img{
+            width: 50px;
+            height: 50px;
+            background: url("img/xingzuo.png") 0 0;
+            margin: 10px 15px;
+        }
+        .main-r{
+            margin: 10px 15px;
+        }
+        .today{
+            height: 14px;
+        }
+        div.star{
+            margin-top:5px;
+            width: 80px;
+            height: 14px;
+        }
+        .main-r .today .star .bg{
+            width: 80px;
+            height: 14px;
+            float: left;
+            background: url("img/star.png") no-repeat right top;
+
+        }
+        .main-r .today .star .tp{
+            width: 80px;
+            height: 14px;
+            float: left;
+            background: url("img/star.png") no-repeat left bottom;
+        }
+
+        .txt span{
+            font-size: 18px;
+            margin: 5px 15px;
+            display: none;
+        }
+        .txt .now{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>星座运势</h2>
+        <div class="main">
+            <div class="img fl">
+
+            </div>
+            <div class="main-r fl">
+                <div>
+
+                        <select id="sel">
+                            <option value="4">白羊座（03.21-04.19）</option>
+                            <option value="4">狮子座（03.21-04.19）</option>
+                            <option value="4">水瓶座（03.21-04.19）</option>
+                            <option value="3">射手座（03.21-04.19）</option>
+                            <option value="4">天蝎座（03.21-04.19）</option>
+                            <option value="3">巨蟹座（03.21-04.19）</option>
+                            <option value="1">双子座（03.21-04.19）</option>
+                            <option value="2">处女座（03.21-04.19）</option>
+                            <option value="4">双鱼座（03.21-04.19）</option>
+                            <option value="2">天秤座（03.21-04.19）</option>
+                            <option value="5">白羊座（03.21-04.19）</option>
+                            <option value="1">白羊座（03.21-04.19）</option>
+                        </select>
+
+
+                </div>
+                <div class="today">
+                    <span class="fl">今日运势：</span>
+                    <div class="star fl">
+
+                        <div class="bg" id="bg"><div class="tp" id="tp"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="txt clearfix">
+            <span class="now">内容1</span>
+            <span>内容2</span>
+            <span>内容3</span>
+            <span>内容4</span>
+            <span>内容5</span>
+            <span>内容6</span>
+            <span>内容7</span>
+            <span>内容8</span>
+            <span>内容9</span>
+            <span>内容10</span>
+            <span>内容11</span>
+            <span>内容12</span>
+        </div>
+    </div>
+</body>
+<script>
+    var sel = document.getElementById('sel');
+    var img = document.getElementsByClassName('img')[0];
+    var span = document.getElementsByTagName('span');
+    var tp = document.getElementById('tp');
+
+    var sels = sel.children;
+
+ sel.onchange = function () {
+     var num = sel.value;
+
+     // console.log(num);
+     tp.style.width = num/5*80+"px";
+
+
+ };
+
+
+</script>
+</html>

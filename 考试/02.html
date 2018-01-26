@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div >
+    <input type="button" value="全选" id="checkAll">
+    <input type="button" value="取消" id="uncheckAll">
+    <input type="button" value="反选" id="checkBack">
+</div>
+<div>
+    <ul>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+        <li><input type="checkbox"/></li>
+
+    </ul>
+</div>
+</body>
+<script>
+    var checkAll = document.getElementById('checkAll');
+    var uncheckAll = document.getElementById('uncheckAll');
+    var checkBack = document.getElementById('checkBack');
+    var inputs = document.getElementsByTagName('input');
+
+    var all = false;
+    checkAll.onclick = function () {
+        all = !all;
+        for(var i = 3;i<inputs.length;i++){
+            // if(all){
+                inputs[i].checked = 'checked';
+            // }else {
+            //     inputs[i].checked = false;
+            // }
+
+        }
+    }
+
+    uncheckAll.onclick = function () {
+        all = !all;
+        for(var i = 3;i<inputs.length;i++){
+            // if(all){
+           // inputs[i].checked = 'checked';
+            // }else {
+              inputs[i].checked = false;
+            // }
+
+        }
+    }
+    checkBack.onclick = function () {
+
+        for(var i = 3;i<inputs.length;i++){
+            var aa = inputs[i];
+            aa.checked = !aa.checked;
+        }
+    }
+</script>
+</html>
