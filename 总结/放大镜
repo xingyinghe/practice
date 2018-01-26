@@ -1,0 +1,23 @@
+放大镜：
+    1、布局
+        一个大的div包括两个div，small放小图片，big放大的图片，然后small中放一个拖块mask
+    2、使mask跟随鼠标移动
+       获取所有的元素
+        1，设置small的鼠标移入事件onmousemove
+            a、计算鼠标的x、y。
+                 var x = e.clientX + small.offsetLeft - box.offsetLeft - mask.offsetWidth / 2;
+                 var y = e.clientY + small.offsetTop - box.offsetTop - mask.offsetHeight / 2;
+            b、根据x、y设置拖块mask的top和left
+                 mask.style.left = x + 'px';
+                 mask.style.top = y + 'px';
+            c、给拖块设定界限，不能移出盒子；
+    3、使大图跟着拖块的移动而移动
+        1，计算mask的left和top在small的width和height的比例，得到percentX和percentY
+        2，计算的图的left和top
+        3，设置大图的style.top和left，注意要加负号，以为大图的移动方向与拖块相反
+        4，给图片设定界限，top和left不能大于大图盒子的值；
+    4、鼠标进入small时mask和big显示和隐藏，onmouseenter和onmouseleave
+        也可以使用onmouseover和onmouseout，但会把事件传递给子节点
+
+
+

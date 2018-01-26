@@ -1,0 +1,24 @@
+回调函数：
+    1，布局：
+        <div id="box"></div>
+    2，js：
+        1，获取box
+        2，获取标签的样式函数getStyle(obj, property)
+                param obj       获取样式的对象
+                param property  获取的属性名称
+        3，缓动框架animation(obj, target, callback)
+             param obj       需要移动的标签
+             param target    移动的参数
+             param callback  接收调用者传递的回调函数
+             a，清除定时器
+             b，给obj设置定时器
+             c， isClearInterval记录是否需要清除定时
+             d，for循环
+                    每次移动的距离=（目标 - 当前) / 10
+               计算 当前位置+每次移动的距离
+             e，判断是否移动到目录位置
+                    没有就不清除定时
+             f，只有所有的目标都到达预定位置才能清除定时器
+             当动画执行完成以后，再判断是否有需要执行callback
+             判断用户是否有传递回调函数，如果有执行回调函数 callback();
+        4，在页面调用animation和callback

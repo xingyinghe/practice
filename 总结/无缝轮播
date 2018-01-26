@@ -1,0 +1,60 @@
+无缝轮播：
+    1，布局
+         div里包括三个列表：图片列表img，下面的轮播的圆点point，还有左右按键arrow
+         （将div设成一张图片的大小，将图片左浮动在一行，div中overflow就可以只看轮播的一张图片了）
+    2，点击圆点显示对应图片
+        1、 获取所有圆点的li、获取img的ul、获取div
+        2、for循环遍历圆点points，获取圆点的数组i
+        3、在for循环里添加圆点的点击事件
+        4、在onclick里循环遍历圆点points，清空当前的圆点j的类名
+        5、将当前的圆点类名设为now（now为圆点的选中状态）
+        6、调用animation，设置第i个图片的移动距离和方向
+               animation(imgUl,-this.i*div.offsetWidth);
+    3，设置左右切换图片
+        1、获取arrow左右按键
+        2、给左右键设置点击事件
+             （设置一个变量index记录当前的图片位置）
+            a，左侧为index--  表示切换图片为上一张，
+            获取目标位置var target = -index * div.offsetWidth;
+            调用 animation函数移动图片
+            b，右侧与左侧相同，将index设置为++，表示切换到下一张图片
+        3、给左右键与圆点point设置关联，左右切换图片时下面的point也要切换
+            可以设置一个函数 highlightPoint表示高亮当前图片对应的圆点
+            函数 highlightPoint：
+                1、清除所有原点的now样式
+                2、给点击的圆点添加中选中的状态now
+    4，图片切换到最边边的一张时，判断是否最后一张或第一张，
+        1、左侧按钮
+             判断是否为-1，如果是表示当前是第1张需要切换后到最后1张
+            if (div.index < 0){
+                        div.index = imgUl.children.length - 2;
+                        imgUl.style.left = -div.index * div.offsetWidth + 'px';
+                        div.index--;//**
+                    }
+        2、右侧按钮
+              判断index是否大于图片长度，如果是把imgUl的left设置为0(不通过animation修改)
+             if(div.index>=imgUl.children.length){
+                    div.index = 2;
+                    imgUl.style.left= 0 +'px';
+                }
+        3、在原有图片li的数组的最后一张添加一个新的li，li放的是第1张的图片
+            在原有图片li的数组的第一张添加一个新的li，li放的是最后1张的图片
+            修改ul的宽度
+            设置ul的left点，-的div宽度
+
+    5，图片切换到添加的新的li时（图片始终比圆点多出两个），对应的圆点也要设置选中状态，
+        在highlightPoint函数中，设置 var pos = div.index - 1;
+        判断pos是否大于0：
+                如果少于0表示这是第1张，对应的是最后一个圆点 pos = points.length - 1;
+                表示这是第1张图片，对应的是第一个圆点
+         给点击的圆点添加中选中的状态
+
+    6，使图片自动轮播
+           自动播放向左移动与点击右键切换图片一样，
+           所以可以将点击右键的事件封装成播放下一张图片next函数
+              在点击右键事件里直接调用next（）即可
+            1、自动轮播autoplay函数
+                设置一个定时器，每隔几秒切换下一张图片
+            2、 开始轮播autoplay();
+            3、设置鼠标在图片上方时轮播停止（清除定时器）
+                鼠标离开图片方时轮播重新开始

@@ -1,0 +1,39 @@
+1，布局：
+    3个div：一个div做边框（content），然后是一个长方形的div（scrollBar）做滚动条的背景，
+    另一个div做拖块（scrollThumb），
+    边框div里还包括一个ul，里面放新闻文字。长出的部分做overflow就行了
+2，js部分：
+      1，获取三个div和ul，因为后面要用哦
+      2，首先想有那些事件，鼠标按下onmousedown、鼠标拖动onmousemove和鼠标松开onmouseup
+          先是拖块的鼠标按下事件：
+            在scrollThumb上按下时，记录点击状态并且修改背景色
+                    scrollThumb.onmousedown = function(){
+                        scrollThumb.isMouseDown = true;
+                        scrollThumb.className = 'scroll-thumb now';
+                    };
+            然后是鼠标按下后的拖动事件，onmousemove要设置在window上，不然鼠标离开拖块后拖块就不动了
+                1.事件里要判断鼠标按下事件是否为真（if），若为真，方可拖动。
+                2.if中要做一个兼容    var e = ev || window.event; // 兼容
+                3.然后计算出拖块的y值（竖着的）或者x值（横着的），如果要鼠标在拖块的中间位置，还要减去拖块高度的一半
+                  然后给y调整拖块，不可以超出背景条，
+            最后是鼠标松开事件
+                1。在任意位置松开鼠标后，使scrollThumb拖块恢复到没点击的状态（按下状态设为false），
+                2.并且清除被选中状态（去掉按下的class，背景色恢复）
+      3，然后是ul文本部分，跟随拖块的拖动而上下滚动
+            先计算拖块占背景条的百分比
+            然后计算ul要地洞的距离（加负号，运动方向与拖块运动方向相反）
+            将距离赋值给ul的top
+      4，可以将ul内容的位置和拖块的调整部分封装调用
+      5，鼠标滚动滑轮事件（content.onmousewheel）
+            1，先兼容
+            2，判断滑轮是往上滚动还是往下滚动
+                非firefox浏览器通过wheelDelta获取滚动状态，正数往上，负数往下
+                （var speed = e.wheelDelta>0?-10:10;）
+            3，将获取的值加上offsettop赋给y
+            4，y调用步骤四
+      6，添加火狐的滚动   兼容
+                清除移动时被选中的文本
+                firefox的滚动事件使用DOMMouseScroll，清除移动时被选中的文本
+                在firefox中滚动状态使用的是detail，往上是负数，往下是正数
+      7，在滑轮滚动时会选中内容中的文字，可以设置 e.preventDefault();
+                    避免window的滚动条移动。

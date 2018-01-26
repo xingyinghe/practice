@@ -1,0 +1,13 @@
+360广告关闭：
+    1，布局
+        大的box包含一个close的span，和一个bottom的div和一个top的div
+    2，js部分
+        获取这close，和两个div
+        1，添加点击关闭事件addEvent(close, 'click', function(){
+               a，获取bottom的高度
+               调用 animation函数，使底部div距离底部的距离为-bHeight，刚好使div向下移动消失
+                animation(box, {bottom:-bHeight}, function(){
+                调用 animation函数，使顶部的div距离右侧的距离为-box.offsetWidth，刚好使div向右移动消失
+                     animation(box, {right:-box.offsetWidth})
+           });
+        }

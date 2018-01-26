@@ -1,0 +1,14 @@
+返回顶部：
+    1，布局
+        长页面，底部有个返回顶部按钮div
+    2，js
+        1、获取返回顶部div
+        2、给window添加onscroll事件，使srollTop距离顶部大于或等于100时显示
+        3、给div添加点击事件onclick
+            a，先清除计时器
+            b，给div设置定时器
+                1、设置speed的值为(0 - scroll().top) / 10;
+                2、给speed做判断，大于0就向上取整，反之向下取整
+                    speed = speed>0?Math.ceil(speed):Math.floor(speed);
+                3，给 window调用scrollTo函数，使之向上滚动
+                    滚动到0时，清除定时器

@@ -1,0 +1,14 @@
+ 事件
+    onscroll        添加在widnow上，滚动条发生改变时会触发该事件
+    onresize        添加在window上，浏览器大小发生改变时会触发
+    onload          添加在window上，在页面DOM节点加载完成后才会执行onload的函数,
+                    如果有多个onload事件，最后的事件会把所有事件覆盖
+    onmousedown     添加在window或元素上，鼠标按下时会触发该事件
+    onmouseup       添加在window或元素上，鼠标松开时会触发该事件
+    onmousemove     添加在window或元素上，鼠标移动时会触发该事件
+    onclick         添加在window或元素上，onmousedown和onmouseup一起结合使用，
+                    只有松开时才会触发事件
+    onmousewheel    添加在window或元素上，鼠标滚轮发生改变触发，火狐不使用该事件
+    onchange        添加在form类的标签中，当内容发生改时会触发
+    onblur          添加在form类的标签中，当点击form类标签时会触发
+    onfocus         添加在form类的标签中，当离开form类标签时会触发
