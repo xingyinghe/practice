@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<input type="button" id="" value="全选" />
+			<input type="button"  id="" value="反选" />
+		</div>
+		<div>
+			<div><input type="checkbox"/>1</div>
+			<div><input type="checkbox"/>2</div>
+			<div><input type="checkbox"/>3</div>
+			<div><input type="checkbox"/>4</div>
+			<div><input type="checkbox"/>5</div>
+			<div><input type="checkbox"/>6</div>
+			
+		
+		</div>
+	</body>
+	<script type="text/javascript">
+		var inputs = document.getElementsByTagName('input');
+		var firstBtn = inputs[0];
+		var secondBtn = inputs[1];
+		
+		var selAll = false;
+		firstBtn.onclick = function(){
+			selAll = !selAll;
+			for(var i = 2;i<inputs.length;i++){
+				if(selAll){
+					
+					inputs[i].checked = 'checked';
+				}else{
+					inputs[i].checked = false;
+					
+				}
+			}
+			firstBtn.value = selAll ? '取消全选' : '全选';
+		};
+		secondBtn.onclick = function(){
+			var selAll = false;
+			firstBtn.value = '全选';
+			for(var i = 2;i<inputs.length;i++){
+				var aa = inputs[i];
+				aa.checked=!aa.checked;
+			}
+		};
+		 
+			for(var i = 2;i<inputs.length;i++){
+				var selAll = false;
+				(function(j){//闭包
+//					var pp = inputs[j];
+//					pp.onclick = function(){
+//					if(!pp.checked){
+//						 selAll = false;
+//						firstBtn.value = '全选';
+//					}else if(selAll){
+//					    
+//						firstBtn.value = '取消全选';
+//					}
+//				};
+				//法二
+					inputs[j].onclick = function(){
+						if(!this.checked){
+							selAll = false;
+							firstBtn.value = '全选';
+						}
+						for(var j = 2;j<inputs.length;j++){
+					 		if(selAll){
+					
+						inputs[j].checked = 'checked';
+						firstBtn.value = '取消全选';
+					}
+						}
+					
+					};
+					
+				})(i);
+				
+				
+			}
+		
+	</script>
+</html>

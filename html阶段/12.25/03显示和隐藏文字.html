@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="隐藏" />
+		<div id="txt">哈哈哈哈哈嗝</div>
+	</body>
+	<script type="text/javascript">
+		var input = document.getElementById('btn');
+		var div = document.getElementById('txt');
+		var isShown = true;
+		
+//		匿名函数的形式给按钮绑定事件
+		input.onclick = function(){
+			if( isShown){
+				isShown = false;
+				div.style.display = 'none';
+				input.value = '显示';
+			}else{
+				isShown = true;
+				div.style.display = 'block';
+				input.value = '隐藏';
+			}
+		};
+
+
+//		函数名方式绑定事件
+//		input.onclick = btnClick;
+//		function btnClick(){
+//			if( isShown){
+//				isShown = false;
+//				div.style.display = 'none';
+//				input.value = '显示';
+//			}else{
+//				isShown = true;
+//				div.style.display = 'block';
+//				input.value = '隐藏';
+//			}
+//		};
+//		
+	</script>
+</html>

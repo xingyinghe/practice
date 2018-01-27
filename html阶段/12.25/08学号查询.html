@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				font: 16px "微软雅黑";
+				
+			}
+			#btn{
+				margin: 10px auto;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="sno" id="sno" value="" /><br />
+		<input type="button" value="查询" id="btn" /><br />
+		<span id="result">
+			
+		</span>
+	
+	</body>
+	<script type="text/javascript">
+		var sno = document.getElementById('sno');
+		var btn = document.getElementById('btn');
+		var result = document.getElementById('result');
+		
+		btn.onclick = function(){
+		
+		var res = '';
+           if(sno.value == ''){
+//				result.innerHTML = '请输入学号!';
+//				result.style.color = 'red';
+				res = '请输入学号!';
+
+			}else if(sno.value <= 0||sno.value >= 133){
+//				result.innerHTML = '没有该学号!';
+//				result.style.color = 'red';
+				res = '没有该学号!';
+			}else if(isNaN(sno.value)){
+//				result.innerHTML = '非法字符!';
+//				result.style.color = 'red';
+				res = '非法字符!';
+			}else if(sno.value % 1 != 0){
+//				result.innerHTML = '不能输入小数!';
+//				result.style.color = 'red';
+				res = '不能输入小数!';
+			}else{
+				result.innerHTML = '查询正确!!';
+				result.style.color = 'green';
+				
+			}
+			if (res != ''){
+				result.innerText = res;
+				result.style.color = 'red';
+			}
+		};
+	</script>
+</html>

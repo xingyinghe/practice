@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="qq">
+			
+		</div>
+		<input type="button" id="aa" value="变宽" />
+		<input type="button" id="bb" value="变高" />
+		<input type="button" id="cc" value="变色" />
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){				
+
+		var qq = document.getElementById("qq");
+		var aa = document.getElementById("aa");
+		var bb = document.getElementById("bb");
+		var cc = document.getElementById("cc");
+		
+		aa.onclick = function(){
+				qq.style.width = "400px";
+			}
+		
+		
+		bb.onclick = function(){
+				qq.style.height = "400px";
+			}
+		
+		
+		cc.onclick = function(){
+				qq.style.background = "blue";
+			}
+		
+		}
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航的显示和隐藏</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-align: center;
+			}
+			ul li{
+				float: left;
+				width: 100px;
+				height: 50px;
+				font: 14px/50px "微软雅黑";
+				background: #909090;
+				border: 1px solid #808080;
+			}
+			ol{
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementsByClassName("btn")[0];
+				var box = document.getElementsByClassName("box")[0];
+				btn.onmouseover = function(){
+					box.style.display = "block";
+				}
+				btn.onmouseout = function(){
+					box.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>01一级菜单</li>
+			<li class="btn">02一级菜单
+			    <ol class="box">
+			    	<li>01</li>
+			    	<li>02</li>
+			    	<li>03</li>
+			    </ol>
+			</li>
+			<li>03一级菜单</li>
+		</ul>
+	</body>
+</html>

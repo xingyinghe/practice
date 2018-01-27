@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		span{
+			font: 16px "微软雅黑";
+		}
+	</style>
+	<body>
+		<input type="text" name="" id="txt" value="" />
+		<input type="button" name="" id="btn" value="查询" />
+		<div id="rs">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var txt = document.getElementById('txt');
+		var btn = document.getElementById('btn');
+		var rs = document.getElementById('rs');
+		btn.onclick = function(){
+			var score = txt.value;
+			var output;
+			if(isNaN(score)){
+				output = '请输入一个数字';
+			}else if(score<0||score>100){
+				output = '请输入0-100';
+			}else{
+			
+			switch(parseInt(score / 10)){
+				case 10:				
+				
+				case 9:
+				output = score + '属于A级别';
+				break;
+				case 8:
+				output = score + '属于B级别';
+				break;
+				case 7:
+				output = score + '属于C级别';
+				break;
+				case 6:
+				output = score + '属于D级别';
+				break;
+				default:
+				output = score + '属于E级别';
+			}	
+			}
+			rs.innerHTML = output;
+		}
+		
+	</script>
+</html>

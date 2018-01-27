@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt" id="txt" value="请输入您姓名" />
+	</body>
+	<script type="text/javascript">
+//		var txt = document.getElementById('txt');
+//		txt.onfocus = function(){
+//			if(txt.value == '请输入您姓名'){
+//				txt.value = '';
+//			}
+//		};
+//		txt.onblur = function(){
+//			if(txt.value == ''){
+//				txt.value = '请输入您姓名';
+//			}
+//		};
+
+		var txt = document.getElementById('txt');
+		txt.onfocus = function(){
+			if(txt.value == '请输入您姓名'){
+				txt.value = '';
+			}
+		};
+		txt.onblur = function(){
+			if(txt.value == ''){
+				txt.value = '请输入您姓名';
+			}
+		};
+	</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			div{
+				width:360px;
+				height:450px;
+				background: url(img/01big.jpg) no-repeat top;
+				border: 1px solid black;
+				position: relative;
+				margin: 200px auto;
+			}
+			
+			div ul{
+				position: absolute;
+				bottom: 0;
+				left: 0;	
+			}
+			div ul li{
+				float: left;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="iimg">
+				<ul>
+					<li id="a"><img src="img/01.jpg"/></li>
+					<li id="b"><img src="img/02.jpg"/></li>
+					<li id="c"><img src="img/03.jpg"/></li>
+					<li id="d"><img src="img/04.jpg"/></li>
+					<li id="e"><img src="img/05.jpg"/></li>
+				</ul>
+			
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		function fn(btn,bg){
+			var oBtn = document.getElementById(btn);
+			var oBg = document.getElementById('iimg');
+					oBtn.onmouseover = function(){
+						oBg.style.backgroundImage = bg;
+					}
+				
+		}
+		fn('a',"url(img/01big.jpg)");
+				fn('b',"url(img/02big.jpg)");	
+				fn('c',"url(img/03big.jpg)");	
+				fn('d',"url(img/04big.jpg)");	
+				fn('e',"url(img/05big.jpg)");	
+	</script>
+</html>

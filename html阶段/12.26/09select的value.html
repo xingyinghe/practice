@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="" id="sel" multiple="multiple">
+			<option value="java">javaccccccccc</option>
+			<option value="my">mycccccccc</option>
+			<option value="php">phpcccccccc</option>
+		</select>
+		<input type="button" name="btn" id="btn" value="点击" />
+		<input type="text" name="txt" id="txt" value="" />
+	</body>
+	<script type="text/javascript">
+		var sel = document.getElementById('sel');
+		 // onchange当内容发生改变时会触发这个事件
+//		sel.onchange = function(){
+//			console.log(sel.value);
+//		};
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			
+	// 只能获取单选的数据，如果是多选只有第1条数据
+//			console.log(sel.value);
+//			sel.options;
+//			var options = sel.selectedOptions;
+//			console.log(options);
+			var options = sel.selectedOptions;
+			var arr = [];
+			for(var i = 0;i<options.length;i++){
+				arr.push(options[i].value);
+			}
+			console.log(arr.join());
+		};
+		
+		
+		
+		var txt = document.getElementById('txt');
+	 txt.oninput = function(){
+	   console.log('oninput');
+	 };
+	 txt.onblur = function(){
+     console.log('onblur');
+   };
+	 txt.onchange = function(){
+     console.log('onchange');
+   };
+	</script>
+</html>

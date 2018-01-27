@@ -1,0 +1,39 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.img{
+	width:1594px;
+	height: 5053px;
+	background: url(../img/index-img.png);
+}
+.fixed{
+	
+	position: fixed;
+	right: 20px;
+	top:40%;	
+}
+.mobile,.feedback,.backtop{
+	width: 63px;
+	height: 63px;
+}
+.mobile{	
+	background-image: url(../img/mobile_normal.jpg);
+}
+.mobile:hover{
+	background-image: url(../img/mobile_hover.jpg);
+}
+.feedback{
+	background-image: url(../img/feedback_normal.jpg);
+}
+.feedback:hover{
+	background-image: url(../img/feedback_hover.jpg);
+}
+.backtop{
+	background-image: url(../img/back2top_normal.jpg);
+}
+.backtop:hover{
+	background-image: url(../img/back2top_hover.jpg);
+	
+}
+

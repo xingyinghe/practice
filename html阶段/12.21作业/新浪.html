@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/01xinliang.css"/>
+		<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_508252_70i8nnmnnfgk3xr.css"/>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementsByClassName("btn")[0];
+				var box1 = document.getElementsByClassName("box1")[0];
+				var weibo = document.getElementById("weibo");
+				var box2 = document.getElementById("box2");
+				var boke = document.getElementById("boke");
+				var box3 = document.getElementById("box3");
+				var em = document.getElementById("em");
+				var box4 = document.getElementById("box4");
+				
+				btn.onmouseover = function(){
+					box1.style.display = "block";
+				}
+				btn.onmouseout = function(){
+					box1.style.display = "none";
+				}
+				weibo.onmouseover = function(){
+					box2.style.display = "block";
+				}
+				weibo.onmouseout = function(){
+					box2.style.display = "none";
+				}
+				boke.onmouseover = function(){
+					box3.style.display = "block";
+				}
+				boke.onmouseout = function(){
+					box3.style.display = "none";
+				}
+				em.onmouseover = function(){
+					box4.style.display = "block";
+				}
+				em.onmouseout = function(){
+					box4.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+	  <div class="top" >
+		<div class="w tp-nav">
+		<div class="fl tp-l">
+		<ul>
+			<li class="fl">设为首页</li>
+			<li class="fl">手机新浪网</li>
+			<li class="btn fl" id="btn">移动客户端<i class="iconfont icon-jiantou"></i>	
+			    <ol class="box1" id="box1">
+			    	<li>新浪微博</li>
+			    	<li>新浪新闻</li>
+			    	<li>新浪体育</li>
+			    	<li>新浪娱乐</li>
+			    	<li>新浪财经</li>
+			    	<li>新浪港股通</li>
+			    	<li>新浪博客</li>
+			    	<li>天气通</li>
+			    	<li>新浪游戏</li>
+			    	
+			    </ol>
+			</li>
+			
+		</ul>
+		</div>
+		
+		<div class=" tp-r fr">
+			<ul>
+				
+				
+		
+			<li class="fl">登录</li>
+			<li class="weibo fl" id="weibo">微博<i class="iconfont icon-jiantou"></i>	
+				<ol class="box2" id="box2">
+			    	<li>私信</li>
+			    	<li>评论</li>
+			    	<li>@我</li>
+			    </ol>
+			</li>
+			<li class="boke fl" id="boke">博客<i class="iconfont icon-jiantou"></i>	
+			    <ol class="box3" id="box3">
+			    	<li>博客评论</li>
+			    	<li>未读提醒</li>
+			    	
+			    </ol>
+			</li>
+			<li class="em fl" id="em">邮箱<i class="iconfont icon-jiantou"></i>	
+				<ol class="box4" id="box4">
+			    	<li>个人邮箱</li>
+			    	<li>VIP邮箱</li>
+			    	<li>企业邮箱</li>
+			    </ol>
+			</li>
+			<li class="fl">网站导航</li>
+			
+				</ul>
+		</div>
+		
+		
+		</div>
+	  </div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+			.show{display: block;}
+			.hide{display: none;}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="显示" />
+		<div>文本</div>
+	</body>
+	<script type="text/javascript">
+		var input = document.getElementsByTagName('input')[0];
+		var div = document.getElementsByTagName('div')[0];
+		input.isShown = true;
+		input.onclick = function(){
+			if(input.isShown){
+				div.classList.remove('show');	
+				div.classList.add('hide');	
+			}else{
+				div.classList.remove('hide');	
+				div.classList.add('show');	
+			}
+			input.isShown = !input.isShown;	
+		};
+	</script>
+</html>

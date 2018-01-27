@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="sno" id="sno" value="" /><br />
+		<input type="button" value="查询" id="btn" /><br />
+		<span id="result">
+			
+		</span>
+	</body>
+	<script type="text/javascript">
+		var sno = document.getElementById('sno');
+		var btn = document.getElementById('btn');
+		var result = document.getElementById('result');
+		
+		btn.onclick = function(){
+			var va = document.getElementById('sno').value;
+			var rs = '';
+			if(va == ''){
+				rs='请输入学号';
+			}else if(va<=0 || va>=355){
+				rs='不存在';
+			}else if(isNaN(va)){
+				rs='非法字符';
+			}else if(va%1 != 0){
+				rs='不可以输入小数';
+			}else{
+				result.innerHTML = '查询正确!!';
+				result.style.color = 'green';
+				
+			}
+			if (rs != ''){
+				result.innerText = rs;
+				result.style.color = 'red';
+			}
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,54 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.img{
+	width:1594px;
+	height: 5053px;
+	background: url(../img/index-img.png);
+}
+.fixed{
+	background-image:url(../img/bg.png) ;
+	position: fixed;
+	right: 20px;
+	top:40%;	
+}
+.center{
+	margin: 3px auto;
+}
+.b{
+	background-color: white;
+	width:65px;
+	height: 30px;
+	border: 2px solid deeppink;
+	margin-bottom: 5px;
+}
+.bb{
+	background-color: white;
+	width:65px;
+	height: 30px;
+	border: 2px solid deeppink;
+}
+
+.fl{
+	float: left;
+}
+.hot,.address,.ice,.camera,.baby{
+	width: 28px;
+	height: 30px;
+}
+.hot{	
+	background-image: url(../img/01hot.png);
+}
+.address{	
+	background-image: url(../img/02address.png);
+}
+.ice{	
+	background-image: url(../img/03icecream.png);
+}
+.camera{	
+	background-image: url(../img/04camera.png);
+}
+.baby{	
+	background-image: url(../img/05baby.png);
+}

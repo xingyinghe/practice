@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.father{
+				width: 500px;
+				height: 400px;
+				margin: 0 auto;
+				border: 1px solid black;
+				overflow: hidden;
+			}
+			.father ul{
+				width: 510px;
+				margin-left: -1px;
+				
+			}
+			.father ul li{
+				width: 100px;
+				height: 40px;
+				background: gainsboro;
+				border-bottom: 1px solid black;
+				float: left;
+			    text-align: center;
+			    line-height: 40px;
+			}
+			.father ul li:hover{
+				background: white;
+				border-bottom: none;
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<ul>
+					<li class="p" id="p">裤子</li>
+					<li class="s" id="s">鞋子</li>
+					<li class="w" id="w">袜子</li>
+					<li class="d" id="d">裙子</li>
+					<li class="c" id="c">帽子</li>		
+			</ul>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var Op = document.getElementById("p");
+		var Os = document.getElementById("s");
+		var Ow = document.getElementById("w");
+		var Od = document.getElementById("d");
+		var Oc = document.getElementById("c");
+		
+		Op.onmspointerhover = function(){
+			Op.style.background="white";
+			Op.style.borderBottom="none";
+		}
+	</script>
+</html>
