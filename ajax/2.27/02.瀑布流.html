@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0; padding: 0; font-size: 12px;}
+        #container{
+            padding: 10px;
+            margin: 0 auto;
+        }
+        #container>div{
+            position: relative;
+        }
+        .imageView{
+            border: 1px solid black;
+            position: absolute;
+            padding: 10px 5px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .load-more{
+            text-align: center;
+        }
+        .load-more span{
+            display: inline-block;
+            cursor: pointer;
+        }
+        .title{
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .content{
+            font-style: italic;
+            height: 30px;
+            line-height: 30px;
+        }
+        .author{
+            text-align: right;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="image-container"></div>
+        <p class="load-more"><span>加载更多</span></p>
+    </div>
+</body>
+<script src="js/jquery.min-1.12.4.js"></script>
+<script src="js/template-web.js"></script>
+
+<script id="imageView" type="text/html">
+    <% for(var i=0;i<data.length;i++){ %>
+    
+    <div class="imageView">
+        <div><img src="http://172.17.12.10:8080/webserver/images/<%=data[i].name%>" /></div>
+        <div class="title"><%=data[i].title%></div>
+        <div class="content"><%=data[i].content%></div>
+        <div class="author"><%=data[i].author%></div>
+
+    </div>
+    
+    <%}%>
+</script>
+
+
+<script>
+    var page = 1;
+    var size = 20;
+    function loadData() {
+
+    $.ajax({
+        url:'http://172.17.12.10:8080/webserver/image',
+        data:{p:page,s:size},
+        type:'get',
+        dataType:'jsonp',
+        success:function (data) {
+            if(data.statusCode==0){
+                appendImageViewsToDOM(data);
+            }else{
+                alert('获取的数据异常');
+            }
+        },
+        error:function (error) {
+            console.log('连接服务器出现异常');
+        }
+    });
+
+    }
+    function appendImageViewsToDOM(data) {
+        console.log(data.length);
+        var html = template('imageView',data);
+        var container = $('.image-container');
+        container.html(container.html() + html);
+        resize();
+    }
+
+    var containerWidth = $('#container').width();
+    var heights;
+
+    function resize() {
+        var views = $('.imageView');
+        var viewWidth = views[0].offsetWidth;
+        var cols = Math.floor(containerWidth/viewWidth);
+         // console.log(cols);
+        heights = [];
+        var tmp,left;
+        for(var i=0;i<views.length;i++){
+            tmp = views[i];
+            if(i<cols){
+                left = viewWidth *i + 5 * i;
+                $(tmp).css({
+                    'top':0,
+                    'left':left +'px',
+                    'width':viewWidth +'px'
+                });
+                heights.push(tmp.offsetHeight);
+            }else{
+                var minPos = getMiniHeight();
+                left = viewWidth * minPos + 5 * minPos;
+                $(tmp).css({
+                    'top':heights[minPos] + 10 +'px',
+                    'left':left +'px',
+                    'width':viewWidth +'px'
+                });
+                heights[minPos] += tmp.offsetHeight + 10;
+
+            }
+        }
+        $('.image-container').css('height',heights[getMaxHeight()]);
+        var lastView = views[cols-1];
+        var width = lastView.offsetLeft + lastView.offsetWidth;
+        $('#container').css('width',width + 'px');
+    }
+
+
+    function getMiniHeight() {
+        var min = 0;
+        for(var i=1;i<heights.length;i++){
+            if(heights[min]>heights[i]){
+                min=i;
+            }
+        }
+        return min;
+    }
+    function getMaxHeight(){
+        var min = 0;
+        for (var i=1;i<heights.length;i++){
+            if (heights[min] < heights[i]){
+                min = i;
+            }
+        }
+        return min;
+    }
+    $('.load-more span').on('click',function () {
+        page ++;
+        loadData();
+    });
+    loadData();
+</script>
+
+
+</html>

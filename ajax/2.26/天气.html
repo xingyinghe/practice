@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div"></div>
+<p id="p"> </p>
+    <table>
+
+        <thead>
+        <tr>
+            <td >今天</td>
+            <td >明天</td>
+            <td >后天</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script src="js/jquery.min-1.12.4.js"></script>
+<script>
+    var tbody = $('tbody');
+    var div = document.querySelector('#div');
+    var p = document.querySelector('#p');
+    getData();
+    //setInterval(getData, 5000);
+
+    // 1. 发出ajax请求
+    // 2. 把获取到数据进行拼接
+    // 3. 把拼接好的字符串添加到tbody中，形式新的DOM节点
+    // 4. 设置定时器，每隔一段时间就向服务器请求获取新的数据
+
+
+    function getData() {
+        $.ajax({
+            url:'https://free-api.heweather.com/s6/weather/forecast?location=广州&key=9fd107ed0b9d42e39fc2ea636bb66395',
+            type:'get',
+            dataType:'jsonp',
+            jsonpCallback:'foo',
+
+            "basic": {
+                "cid": "CN101280101",
+                "location": "广州",
+                "parent_city": "广州",
+                "admin_area": "广东",
+                "cnty": "中国",
+                "lat": "23.12517738",
+                "lon": "113.28063965",
+                "tz": "+8.0"
+            },
+
+            success:function(rs){
+                console.log(rs);
+
+
+
+            },
+            error:function(e){
+                console.log('error');
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* $.ajax({
+            url:'https://free-api.heweather.com/s6/weather/forecast?location=广州&key=9fd107ed0b9d42e39fc2ea636bb66395',
+            type: 'get',
+            dataType: 'jsonp',
+         success: function (rs) {
+                var arr = rs.data;
+                var html = '';
+console.log(rs)
+
+              //   for (var i = 0; i < arr.length; i++) {
+              //
+              //       html += '<tr><td>' + arr[0].tmp_max +' '+arr[0].tmp_min +
+              //           '</td><td>'+ arr[1].tmp_max +' '+arr[1].tmp_min+
+              //       '</td><td>'+ arr[2].tmp_max +' '+arr[2].tmp_min  +'</td></tr>';
+              //   }
+                var htmll = arr[i].location;
+                var htmlll=arr[0].wind_sc;
+                div.html(htmll);
+                p.html(htmlll);
+                tbody.html(html);
+
+            },
+
+            error: function (error) {
+                console.log('error')
+            }
+        });*/
+    }
+</script>
+</html>

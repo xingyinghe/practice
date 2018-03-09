@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var xhr = null;
+    if(XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    }else{
+        xhr = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    xhr.open('GET','http://localhost:8080/webserver/dept', true);
+    xhr.send(null);
+    xhr.onreadystatechange=function () {
+        if(xhr.readyState==4 && xhr.status == 200){
+            var text = xhr.responseText;
+            var json = JSON.parse(text);
+            console.log(typeof json);
+            var txt = JSON.stringify(json);
+            console.log(typeof txt);
+        }
+    };
+</script>
+</html>

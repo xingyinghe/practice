@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <select id="province"></select>
+        <select id="city"></select>
+        <select id="area"></select>
+    </div>
+</body>
+<script src="js/jquery.min-1.12.4.js"></script>
+<script>
+    function getProvinces(p,c,a) {
+        $.ajax({
+           dataType:'json',
+            type:'get',
+            url:'http://localhost:8080/webserver/linkage',
+            data:{},
+            success:function (rs) {
+                var data = rs.data;
+                var html ='';
+                for(var i=0;i<data.length;i++){
+                    html +='<option value="'
+                        +data[i].code+'">'
+                        +data[i].name+'</option>';
+                }
+                p.innerHTML = html;
+                getCities(c,a,data[0].code);
+            },
+            error:function (rs) {
+                console.log('访问失败：');
+                console.log(rs);
+            }
+
+        });
+    }
+
+    function getCities(c,a,code) {
+        $.get('http://localhost:8080/webserver/linkage?pid='+code,function (rs) {
+            var data = rs.data;
+            var html = '';
+            for(var i=0;i<data.length;i++){
+                html += '<option value="'+data[i].code+'">'+data[i].name+'</option>';
+            }
+            c.innerHTML = html;
+            getArea(a,data[0].code);
+        });
+
+
+    }
+function getArea(a,code) {
+    $.post('http://localhost:8080/webserver/linkage', {cid:code}, function (rs) {
+        var data = rs.data;
+        var html = '';
+        for(var i = 0;i < data.length;i++){
+            html +='<option value="'+ data[i].e+'">'+
+                data[i].name+ '</option>';
+        }
+        a.innerHTML = html;
+
+        // console.log(data);
+    });
+}
+
+    (function () {
+        var p = document.querySelector('#province');
+        var c = document.getElementById('city');
+        var a = document.getElementsByTagName('select')[2];
+
+        p.onchange = function () {
+            getCities(c, a, this.value);
+        };
+        c.onchange = function () {
+            getArea(a.value);
+        };
+
+        getProvinces(p, c, a);
+    })();
+
+</script>
+</html>

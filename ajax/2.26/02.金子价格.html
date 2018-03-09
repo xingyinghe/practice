@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .increase{color: red;}
+        .decrease{color: green;}
+        .zero{color: black;}
+    </style>
+</head>
+<body>
+    <table>
+
+        <thead>
+        <tr>
+            <td id="name">名称</td>
+            <td id="pre">价格</td>
+            <td id="unit">幅度</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script src="js/jquery.min-1.12.4.js"></script>
+<script>
+    var tbody = $('tbody');
+
+    getData();
+    setInterval(getData,5000);
+
+    function getData() {
+        $.ajax({
+
+            type:'get',
+            url:'http://localhost:8080/webserver/stock',
+            success:function (rs) {
+                var arr = rs.data;
+                var html='';
+                for(var i=0;i<arr.length;i++){
+                    var className = arr[i].unit>0?'increase': arr[i].unit<0?'decrease':'zero';
+                    html +='<tr><td>'+arr[i].name
+                        +'</td><td class="' + className + '">' +arr[i].now
+                        +'</td><td class="' + className + '">' +Math.round(arr[i].unit*10000)/100+'%</td></tr>';
+                }
+                tbody.html(html);
+            },
+            error:function (rs) {
+                console.log('访问失败：');
+                console.log(rs);
+            },
+            dataType:'json'
+        });
+    }
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0;padding:0;}
+        .container{width: 960px;margin: 0 auto;}
+        table{width: 500px;margin: 0 auto;border-collapse: collapse;}
+        td, th{border: 1px solid black;text-align: center;font-size: 14px;}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <table>
+        <thead>
+        <tr><th>部门号</th><th>部门名称</th><th>部位位置</th><th>操作</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+</body>
+<script>
+    var pageSize = 5;
+    var currentPage = 1;
+    var tbody = document.querySelector('tbody');
+
+    tbody.addEventListener('click', function(e){
+        e.preventDefault();
+
+        var target = e.target;
+        var val = target.innerHTML;
+        if (val === '编辑'){
+
+        } else if (val === '删除'){
+            deleteRow(target);
+        }
+
+        return false;
+    });
+    updateTable();
+    function updateTable() {
+        var url = 'http://localhost:8080/webserver/dept?page='+
+            currentPage + '&size=' + pageSize;
+        get(url,function (rs) {
+           var data = rs.data;
+           var html = '';
+           for(var i = 0;i<rs.size;i++){
+               html += '<tr><td>'+ data[i].deptno +'</td><td>' +data[i].dname
+                         +'</td><td>' +data[i].loc +'</td><td>'
+                            + '<a >编辑</a><a >删除</a></td></tr>'
+           }
+           tbody.innerHTML = html;
+        });
+    }
+
+    function deleteRow(obj){
+        var deptno = obj.parentNode.parentNode.children[0].innerHTML;
+        alert(deptno);
+        var rs = confirm('确定要删除部门号是' + deptno + '的条记录吗?');
+        if (rs){    // 点击了确定
+            var url = 'http://localhost:8080/webserver/dept?act=delete&deptno=' + deptno;
+            get(url, function(rs){
+                updateTable();
+            })
+        }
+    }
+
+
+
+
+
+    function ajax(method,url,params,callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method,url,true);
+        xhr.send(params);
+        xhr.onreadystatechange=function () {
+            if(xhr.readyState == 4 && xhr.status == 200){
+                if (callback){
+                    callback(JSON.parse(xhr.responseText));
+                }
+            }
+        }
+    }
+    function get(url, callback){
+        ajax('get', url, null, callback);
+    }
+    function post(url, params, callback){
+        ajax('post', url, params, callback);
+    }
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error{color:red;}
+        .success{color:green;}
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    <div>
+        <span class="label">部门号：</span>
+        <input type="text" name="deptno"/>
+        <span class="msg"></span>
+    </div>
+    <div>
+        <span class="label">部门名：</span>
+        <input type="text" name="dname"/>
+        <span class="msg"></span>
+    </div>
+    <div>
+        <span class="label">部门位置：</span>
+        <input type="text" name="loc"/>
+        <span class="msg"></span>
+    </div>
+    <div>
+        <button class="cancel">取消</button>
+        <button class="save">保存</button>
+    </div>
+</form>
+</body>
+<script>
+    var deptnoField = document.querySelectorAll('input')[0];
+    deptnoField.addEventListener('blur',function(){
+        var val = deptnoField.value;
+        var xhr = new XMLHttpRequest();
+        var url =  'http://localhost:8080/webserver/dept?act=checkdeptno&deptno=' + val;
+        xhr.open('get', url, true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var rs = xhr.responseText;
+                var json = JSON.parse(rs);
+                var span = deptnoField.nextElementSibling;
+                span.innerHTML = json.msg;
+                span.className = json.statusCode = 1?'msg error':'msg success';
+            }
+        };
+    });
+</script>
+</html>
